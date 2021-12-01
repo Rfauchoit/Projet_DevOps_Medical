@@ -11,6 +11,7 @@ patientcontroller = patientController()
 def index():
     return render_template("index.html")
 
+
 @app.route("/addPatient")
 def addPatient():
     return patientcontroller.addPatient()
@@ -25,3 +26,4 @@ def traitementPatient():
 @app.route("/displayPatient")
 def affichage():
     return patientcontroller.fetch_patient(patient)
+

@@ -1,9 +1,9 @@
 body{
     background-color: #507f88;
-
+    background-image: url('');
     background-size:cover;
     background-repeat: no-repeat;
-    background-image: url("images/pomme.jpg");
+    background-image: url();
 
 
 }
@@ -20,7 +20,7 @@ body{
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #9991ff;
+    background-color: #69aece;
     background-clip: border-box;
     border: 1
 px
@@ -32,8 +32,8 @@ rem
 
 .btn-primary {
     color: #fff;
-    background-color: #ec9680;
-    border-color: #ec9680;
+    background-color: #5c7a88;
+    border-color: #5c7a88;
 }
 
 /* bouton */
