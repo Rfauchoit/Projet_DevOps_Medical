@@ -5,7 +5,7 @@ class Db():
     
     def __init__(self):
         self.logging()
-        
+
     def logging(self):
         self.conn = mysql.connector.connect(
             user=Config.user,
@@ -13,6 +13,7 @@ class Db():
             host=Config.host,
             database=Config.database,
             port=Config.port)
+
         self.conn.autocommit=True 
 
 
@@ -23,3 +24,4 @@ class Db():
         except mysql.connector.Error as err:
             print(err)
             
+
