@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="Description" content="Application web medicale"/>
+    <meta name="tags" content="infirmier, santé, patient"/>
+    <title>Projet Medical</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+          <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="icon" href="">
+</head>
+
+<body>
+<!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Accueil</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Infirmiers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Patients</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Déplacements</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+<!-- Carte de gestion -->
+
+<div class="card text-center">
+  <div class="card-header">
+    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">Ajouter vos déplacements</p>
+    
+  </div>
+  <div class="card-footer text-muted">
+    
+  </div>
+</div>
+      <!--Formulaire-->
+
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+    
+        <form action="Accueil.html">  
+        <div class="form-group">  
+          <label for="nomp">Nom du patient:</label>  
+          <input type="texte" class="form-control" id="nomp" placeholder="Entrez le nom du patient" minlenght="2" maxlenght="26" required>  
+        </div>  
+        <div class="form-group">  
+            <label for="datedep">Date:</label>  
+            <input type="date" class="form-control" id="datdep" placeholder="">  
+          </div>  
+        <div class="form-group">  
+          <label for="cout">Coût</label>  
+          <input type="texte" class="form-control" id="cout" placeholder="">  
+        </div>  
+     <!-- Bouton connecter -->
+     <button type="submit" class="btn btn-success">Annuler</button>
+        <button type="submit" class="btn btn-success">Créer</button>
+
+      </form> 
+        <div class="col-sm-5">
+    </div>
+      </div>
+    </div>
+    
+          </div>
+        </div>
+    </div>
+
+        <footer>
+         
+        </footer>
+    </body>
+    </html>
