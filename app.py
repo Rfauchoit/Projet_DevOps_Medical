@@ -1,11 +1,19 @@
 from flask import Flask, render_template, request
+<<<<<<< HEAD
 from werkzeug.utils import redirect
 from controller.infirmiercontroller import InfirmierController
 from model.infirmier import Infirmier, infirmier
+=======
+from model.patient import Patient
+from controller.patientcontroller import patientController
+>>>>>>> develop
 
 infirmier = Infirmier()
 InfirmierController = InfirmierController()
 app = Flask(__name__)
+patient=Patient()
+patientcontroller = patientController()
+
 
 # @app.route("/")
 # def hello():
@@ -43,7 +51,24 @@ def affichage():
 #     data = request.args
 #     return continentController.updateContinent(data)
 
+<<<<<<< HEAD
 # @app.route('traitementUpdate', methods=['POST','GET'])
 # def traitementUpdate():
 #     data = request.form
 #     return continentController.traitementUpdate(continent, data)
+=======
+@app.route("/addPatient")
+def addPatient():
+    return patientcontroller.addPatient()
+
+@app.route("/traitementPatient", methods=['POST', 'GET'])
+def traitementPatient():
+      data=request.form
+      print(data)
+      return patientcontroller.traitementPatient(patient, data)
+    
+     
+@app.route("/displayPatient")
+def affichage():
+    return patientcontroller.fetch_patient(patient)
+>>>>>>> develop
