@@ -1,29 +1,29 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request
+from model.patient import Patient
+from controller.patientcontroller import patientController
 
 app = Flask(__name__)
+patient=Patient()
+patientcontroller = patientController()
+
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
-@app.route("/addpat")
+
+@app.route("/addPatient")
 def addPatient():
-    return render_template("addpatient.html")
+    return patientcontroller.addPatient()
 
-@app.route("/addinf")
-def addInfirmier():
-    return render_template("addInfirmier.html")
+@app.route("/traitementPatient", methods=['POST', 'GET'])
+def traitementPatient():
+      data=request.form
+      print(data)
+      return patientcontroller.traitementPatient(patient, data)
+    
+     
+@app.route("/displayPatient")
+def affichage():
+    return patientcontroller.fetch_patient(patient)
 
-@app.route("/adddep")
-def addDeplacement():
-    return render_template("addDeplacement.html")
-
-
-@app.route("/delpa")
-def deletePatient():
-    return render_template("deletePatient.html")
-
-@app.route("/delinf")
-def deleteInfirmier():
-    return render_template("deleteInfirmier.html")

@@ -45,41 +45,45 @@
         <div class="row">
             <div class="col-sm-5">
     
-        <form action="Accueil.html">  
+        <form action="{{url_for(('traitementPatient'))}}", method="post">  
         <div class="form-group">  
           <label for="nom">Nom:</label>  
-          <input type="texte" class="form-control" id="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
+          <input type="texte" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
         </div>  
         <div class="form-group">  
           <label for="prenom">Prénom:</label>  
-          <input type="texte" class="form-control" id="prenom" placeholder="Entrez votre prénom" required>  
+          <input type="texte" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>  
         </div>  
         <div class="form-group">  
           <label for="date">Date de naissance:</label>  
-          <input type="date" class="form-control" id="date" placeholder="Entrez votre date de naissance">  
+          <input type="date" class="form-control" id="date" name="naissance" placeholder="Entrez votre date de naissance">  
         </div>  
         <div class="form-group">  
           <label for="sexe">Sexe:</label>  
-          <input type="texte" class="form-control" id="sexe" placeholder="">  
+          <input type="texte" class="form-control" id="sexe" name="sexe" placeholder="">  
         </div>  
         <div class="form-group">  
           <label for="secu">N° sécurité sociale:</label>  
-          <input type="texte" class="form-control" id="secu" placeholder="Entrez votre n° de sécurité sociale">  
+          <input type="texte" class="form-control" id="secu" name="securite_sociale" placeholder="Entrez votre n° de sécurité sociale">  
         </div>  
      <!-- Adresse -->
      <div style="border: solid;" >
     <h4>Adresse</h4>
+       <div class="form-group">  
+          <label for="rue">Numéro:</label>  
+          <input type="texte" class="form-control" id="num" name="numero" placeholder="Entrez votre adresse">  
+        </div> 
         <div class="form-group">  
           <label for="rue">Rue:</label>  
-          <input type="texte" class="form-control" id="rue" placeholder="Entrez votre adresse">  
+          <input type="texte" class="form-control" id="rue" name="rue" placeholder="Entrez votre adresse">  
         </div> 
         <div class="form-group">  
           <label for="ville">Ville:</label>  
-          <input type="texte" class="form-control" id="ville" placeholder="Entrez votre ville">  
+          <input type="texte" class="form-control" id="ville" name="ville" placeholder="Entrez votre ville">  
         </div> 
         <div class="form-group">  
           <label for="cp">Code postal:</label>  
-          <input type="texte" class="form-control" id="cp" placeholder="Entrez votre code postal">  
+          <input type="texte" class="form-control" id="cp" name="cp" placeholder="Entrez votre code postal">  
         </div>
       </div>
      <!-- Bouton connecter -->
