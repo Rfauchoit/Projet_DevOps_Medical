@@ -1,0 +1,54 @@
+from model.db import Db
+
+class Patient(Db):
+    def __init__(self):
+        super().__init__()
+    
+    
+    def fetchAll(self):
+        self.cursor=self.getCursor()
+        sql2="SELECT NOM_CONTINENT, ID_CONTINENT FROM continent;"
+        self.cursor.execute(sql2)
+        rows=self.cursor.fetchall()
+        self.cursor.close()
+        return rows
+    
+    def fetchAdresse(self, patientData):
+       # recuperer l'id de l'adresse si elle existe
+        self.cursor=self.getCursor()
+        sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{patientData.get('numero')}' and  adresse.rue= '{patientData.get('rue')}' and adresse.cp='{patientData.get('cp')}' and adresse.ville='{patientData.get('ville')}' ;"
+        val = (patientData.get('numero'),  patientData.get('rue'),  patientData.get('cp'),  patientData.get('ville'))
+        self.cursor.execute(sqlSelect)
+        rows=self.cursor.fetchone()
+        self.cursor.close()
+        return rows.get('idadresse')
+    
+    def deleteById(self, id):
+        self.cursor=self.getCursor()
+        sql=f"DELETE FROM continent WHERE id_continent={id}"
+        self.cursor.execute(sql)
+        self.cursor.close()
+    
+    
+    def addPatient(self, patientData):
+        print(type(patientData.get('numero')))
+        if (type(patientData.get('numero')).__name__!= "NoneType") :
+            print(patientData.get('adresse_idadresse'))
+            id_adresse=self.fetchAdresse(patientData)
+        else:
+            id_adresse=None
+        self.cursor=self.getCursor()
+        sql = "INSERT INTO patient (adresse_idadresse, infirmier_idinfirmier, nom, prenom, naissance, sexe, securite_sociale) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+        val = (id_adresse,None, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
+        self.cursor.execute(sql, val)
+        self.cursor.close()
+       
+    
+    
+    def update(self, continent):
+        sql=f"UPDATE continent SET nom_continent =%s where id_contient=%s" 
+        val = (continent.get('nom_continent'), continent.get('id'))
+        self.cursor.execute(sql) 
+        self.cursor.close()
+    
+        
