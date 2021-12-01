@@ -1,6 +1,6 @@
-from flask import Flask, render_template
+from flask import render_template
 
 class infirmierController():
-    def fetch_patient(self, infirmier):
+    def fetch_infirmier(self, infirmier):
         result = infirmier.fetchAll() 
         return render_template("displayInfirmier.html", data= result)

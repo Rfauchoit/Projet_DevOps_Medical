@@ -1,3 +1,4 @@
+from flask import config
 import mysql.connector
 from abc import ABC
 from model.config import Config
@@ -13,7 +14,9 @@ class Db():
             password=Config.password,
             host=Config.host,
             database=Config.database,
-            port=Config.port)
+            port=Config.port,
+            auth_plugin = Config.auth_plugin)
+            
         self.conn.autocommit=True #il est à zero par defaut sur mysql.connector
        
 
