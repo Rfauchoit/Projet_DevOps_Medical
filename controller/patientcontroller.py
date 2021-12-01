@@ -1,5 +1,6 @@
 from flask import render_template
 from werkzeug.utils import redirect
+
 class patientController():
     def fetch_patient(self, patient):
         result = patient.fetchAll() 
