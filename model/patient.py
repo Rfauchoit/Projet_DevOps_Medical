@@ -4,14 +4,13 @@ class Patient(Db):
     def __init__(self):
         super().__init__()
     
-    
     def fetchAll(self):
         self.cursor=self.getCursor()
-        sql2="SELECT NOM_CONTINENT, ID_CONTINENT FROM continent;"
-        self.cursor.execute(sql2)
+        sqlp="SELECT nom, prenom, securite_sociale FROM patient"
+        self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
-        return rows
+        return rows 
     
     def fetchAdresse(self, patientData):
        # recuperer l'id de l'adresse si elle existe
@@ -23,13 +22,7 @@ class Patient(Db):
         self.cursor.close()
         return rows.get('idadresse')
     
-    def deleteById(self, id):
-        self.cursor=self.getCursor()
-        sql=f"DELETE FROM continent WHERE id_continent={id}"
-        self.cursor.execute(sql)
-        self.cursor.close()
-    
-    
+      
     def addPatient(self, patientData):
         print(type(patientData.get('numero')))
         if (type(patientData.get('numero')).__name__!= "NoneType") :
@@ -42,13 +35,4 @@ class Patient(Db):
         val = (id_adresse,None, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
         self.cursor.execute(sql, val)
         self.cursor.close()
-       
-    
-    
-    def update(self, continent):
-        sql=f"UPDATE continent SET nom_continent =%s where id_contient=%s" 
-        val = (continent.get('nom_continent'), continent.get('id'))
-        self.cursor.execute(sql) 
-        self.cursor.close()
-    
-        
+   

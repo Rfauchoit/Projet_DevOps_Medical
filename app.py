@@ -1,12 +1,11 @@
 from flask import Flask, render_template, request
 from model.patient import Patient
-from controller.patientController import PatientController
+from controller.patientcontroller import patientController
 
-app = Flask("/")
-
-
+app = Flask(__name__)
 patient=Patient()
-patientController = PatientController()
+patientcontroller = patientController()
+
 
 @app.route("/")
 def index():
@@ -14,13 +13,15 @@ def index():
 
 @app.route("/addPatient")
 def addPatient():
-    return patientController.addPatient()
+    return patientcontroller.addPatient()
 
 @app.route("/traitementPatient", methods=['POST', 'GET'])
 def traitementPatient():
       data=request.form
       print(data)
-      return patientController.traitementPatient(patient, data)
+      return patientcontroller.traitementPatient(patient, data)
     
-    
-    
+     
+@app.route("/displayPatient")
+def affichage():
+    return patientcontroller.fetch_patient(patient)
