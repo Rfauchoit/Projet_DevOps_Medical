@@ -50,3 +50,9 @@ class Deplacement(Db):
     def updateDeplacement(self, patientData):
         pass
 
+
+    def deleteById(self, id):
+        self.cursor=self.getCursor()
+        sql = f"DELETE FROM deplacement WHERE iddeplacement = {id}"
+        self.cursor.execute(sql)
+        self.cursor.close()
