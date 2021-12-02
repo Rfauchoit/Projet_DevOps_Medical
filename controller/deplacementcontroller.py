@@ -25,7 +25,7 @@ class deplacementController():
 
     def traitementUpdateDeplacement(self, deplacement, data):
         deplacement.updateDeplacement(data, self.iddeplacement)
-        return redirect("/displayPatient")
+        return redirect("/displayDeplacement")
     
     def deleteById(self, deplacement, id):
         deplacement.deleteById(id)

@@ -77,7 +77,7 @@
 
                         <h5 class="card-title"></h5>
 
-                        <p class="card-text">Afficher les déplacements</p>
+                        <p class="card-text">Liste des déplacements</p>
 
 
                     </div>
@@ -87,13 +87,13 @@
 
                   </div>
 
-    <h1>Listes des déplacements</h1>
+  
     <ul>
     {% for value in data %}
     <li>{{value.nom}} {{value.prenom}} {{value.date}} {{value.cout}}
-        <a href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
-        &cout={{value.cout}}&date={{value.date}}"> modifier </a>
-        <a class="btn btn-primary" href=href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a>
+        <a  class="btn btn-primary" href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
+        &cout={{value.cout}}&date={{value.date}}" role="button"> modifier </a>
+        <a class="btn btn-primary" href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a>
     </li>
     {% endfor %}
     </ul>
