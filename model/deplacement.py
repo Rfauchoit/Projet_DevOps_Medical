@@ -7,7 +7,9 @@ class Deplacement(Db):
     def fetchAll(self):
         self.cursor=self.getCursor()
 
-        sqlp=f"SELECT date, cout, nom, prenom, iddeplacement FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
+        sqlp=f"""SELECT cout, DATE_FORMAT(date, '%Y-%m-%d') as date, nom,
+        prenom, iddeplacement FROM deplacement join  patient on patient_idpatient =patient.idpatient;"""
+
 
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
@@ -46,9 +48,19 @@ class Deplacement(Db):
         self.cursor.execute(sql, val)
         self.cursor.close()
         
+
+
+    def updateDeplacement(self, deplacementData, iddeplacement):
         
-    def updateDeplacement(self, patientData):
-        pass
+        
+          
+            self.cursor=self.getCursor()
+            print("deplacementData", deplacementData, iddeplacement)
+            sqlp = f"""UPDATE deplacement SET cout='{deplacementData.get('cout')}', date='{deplacementData.get('date')}'
+            where iddeplacement like '{iddeplacement}' """
+            self.cursor.execute(sqlp)
+            self.cursor.close()
+      
 
 
     def deleteById(self, id):
@@ -56,3 +68,4 @@ class Deplacement(Db):
         sql = f"DELETE FROM deplacement WHERE iddeplacement='{id}'"
         self.cursor.execute(sql)
         self.cursor.close()
+

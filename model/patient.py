@@ -11,7 +11,37 @@ class Patient(Db):
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows 
+
+
+    def fetchInfirmier(self):
+        """[Methode qui permet de récuper nom, prénom, numéro_pro infirmier]
+
+        Returns:
+            [dict]: [nom, prenom, numero_pro]
+        """
+        self.cursor=self.getCursor()
+        sqlp="SELECT nom, prenom, numero_pro FROM infirmier"
+        self.cursor.execute(sqlp)
+        rows=self.cursor.fetchall()
+        self.cursor.close()
+        return rows 
     
+    def fetchInfirmierPatient(self, patientData):
+        """[Methode qui permet de récuper numéro_pro infirmer]
+
+        Returns:
+            [dict]: [nom, prenom, numero_pro]
+        """
+        self.cursor=self.getCursor()
+        sqlp=f"SELECT numero_pro FROM infirmier where idinfirmier='{patientData.get('infirmier_idinfirmier')}'" 
+       
+        self.cursor.execute(sqlp)
+        rows=self.cursor.fetchone()
+        self.cursor.close()
+        return rows 
+    
+    
+
     def fetchAdresse(self, patientData):
         # recuperer l'id de l'adresse si elle existe
         self.cursor=self.getCursor()
@@ -22,7 +52,7 @@ class Patient(Db):
         if (type(rows).__name__!= "NoneType") :
             return rows.get('idadresse')
     
-    
+   
     def fetchOneInfirmier(self, patientData):
         """[Methode qui permet de récuper l'id de l'infirmier à partir de son numéro pro]
 
@@ -53,6 +83,7 @@ class Patient(Db):
         sqlp=f"""SELECT nom, prenom, securite_sociale, idpatient, naissance, sexe, 
             securite_sociale, rue, numero, ville, cp, adresse.idadresse, infirmier_idinfirmier FROM patient 
             left join adresse on patient.adresse_idadresse=adresse.idadresse WHERE idpatient='{patientData.get('idpatient')}'"""
+    
           
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchone()
@@ -67,33 +98,32 @@ class Patient(Db):
             patientData ([dict]): [les infos du patients]
         """
         id_adresse=None
-        if (type(patientData.get('numero')).__name__!= "NoneType") :
-            print(patientData.get('adresse_idadresse'))
-            id_adresse=self.fetchAdresse(patientData)
-                
+
+        if type(patientData.get('numero_pro')).__name__!='NoneType':
+             id_infirmier=self.fetchOneInfirmier(patientData)
+            
+        #if type(patientData.get('numero')).__name__!= "NoneType" :
+        id_adresse=self.fetchAdresse(patientData)
+       
+        if id_adresse==None :
+             self.cursor=self.getCursor()
+             sqla = """INSERT INTO adresse(numero, rue, cp, ville) VALUE (%s,%s,%s,%s);"""
+             vala =(patientData.get('numero'), patientData.get('rue'), patientData.get('cp'), patientData.get('ville'))
+             self.cursor.execute(sqla, vala)
+             id_adresse=self.fetchAdresse(patientData)
+             
+           
+           
         self.cursor=self.getCursor()
-        sql = "INSERT INTO patient (adresse_idadresse, infirmier_idinfirmier, nom, prenom, naissance, sexe, securite_sociale) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-        val = (id_adresse,None, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
+        sql = """INSERT INTO patient (adresse_idadresse, infirmier_idinfirmier, 
+              nom, prenom, naissance, sexe, securite_sociale)
+              VALUES (%s, %s, %s, %s, %s, %s, %s);"""
+        val = (id_adresse,id_infirmier, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
+            
         self.cursor.execute(sql, val)
         self.cursor.close()
 
-        def updatePatient(self, patientData):
-           """[cette methode sert à mettre à jour les informations d'un patient dans la table patient]
-
-
-           Args:
-                patientData ([dict]): [les infos du patients]
-           """
-           
-         
-
-           sql=f"""UPDATE continent SET adresse_idadresse='{patientData.get('numero')}',
-           nom='{patientData.get('nom')}', prenom='{patientData.get('prenom')}', 
-           naissance='{patientData.get('naissance')}', sexe='{patientData.get('sexe')}', 
-           securite_sociale='{patientData.get('securite_sociale')}' where idpatient='{patientData.get('idpatient')}'""" 
-           self.cursor.execute(sql) 
-           self.cursor.close()
-    
+     
 
     def updatePatient(self, patientData, idpatient, idadresse):
         """[cette methode sert à mettre à jour les informations dun patient dans la table patient 
@@ -104,7 +134,6 @@ class Patient(Db):
                 idpatient : identifiant patient à mettre à jour
                 idadresse : id adresse correspondant à patient
         """
-       
         try :
             if type(patientData.get('numero_pro')).__name__ != 'NoneType':
                 id_infirmier = self.fetchOneInfirmier(patientData)
