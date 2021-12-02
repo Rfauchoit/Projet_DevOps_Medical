@@ -74,7 +74,9 @@
                     </div>
                     <div class="card-body">
                       <h5 class="card-title"></h5>
-                      <p class="card-text">Liste des déplacaments</p>
+
+                      <p class="card-text">Liste des déplcaments</p>
+
                       
                     </div>
                     <div class="card-footer text-muted">
@@ -84,11 +86,10 @@
 
     <ul>
     {% for value in data %}
-        <li>{{value.nom}} {{value.date}} {{value.cout}}
-            
-        </li>
+        <li>{{value.nom}} {{value.prenom}} {{value.date}} {{value.cout}}</li>
 
-    {% endfor %}
+
+        {% endfor %}
     </ul>
 </body>
 </html>

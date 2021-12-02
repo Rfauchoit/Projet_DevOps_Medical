@@ -24,7 +24,6 @@
 </head>
 
 <body>
-
     <!-- header : navigation et titre -->
     <header id="top">
         <div class="container">
@@ -86,12 +85,14 @@
                     <div class="row">
                         <div class="col-sm-5">
     <ul>
-    {% for value in data %}
-        <li>{{value.nom}} {{value.prenom}} {{value.securite_sociale}}
-            <a href="{{url_for('delete', id = value.idpatient)}}"> Supprimer </a>
-        </li>
+        {% for value in data %}
+            <li>{{value.nom}} {{value.prenom}} {{value.securite_sociale}}
+                <a href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}"> modifier </a>
+                <a href="{{url_for('deletePatient', id=value.idpatient)}}"> Supprimer </a>
+            </li>
 
-    {% endfor %}
+        {% endfor %}
+
     </ul>
 
 </div>
@@ -99,3 +100,4 @@
 </div>
 </body>
 </html>
+
