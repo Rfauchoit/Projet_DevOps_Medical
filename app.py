@@ -17,22 +17,24 @@ patientcontroller = patientController()
 def index():
     return render_template("index.html")
 
-
 @app.route("/addPatient")
 def addPatient():
     return patientcontroller.addPatient()
 
 @app.route("/traitementPatient", methods=['POST', 'GET'])
 def traitementPatient():
-      data=request.form
-      print(data)
-      return patientcontroller.traitementPatient(patient, data)
-     
+        data=request.form
+        print(data)
+        return patientcontroller.traitementPatient(patient, data)
+
 @app.route("/displayPatient")
-def affichage():
+def affichagepatient():
     return patientcontroller.fetch_patient(patient)
 
 @app.route("/displayInfirmier")
-def affichage():
+def affichageinfirmier():
     return infirmiercontroller.fetch_infirmier(infirmier)
 
+@app.route('/delete/<int:id>', methods = ['GET', 'POST'])
+def delete(id):
+    return patientcontroller.deleteById(patient, id)

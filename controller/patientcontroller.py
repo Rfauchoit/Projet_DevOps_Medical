@@ -12,3 +12,7 @@ class patientController():
 
     def addPatient(self):
         return render_template("addpatient.html")
+    
+    def deleteById(self, patient, id):
+        patient.deleteById(id)
+        return redirect("/displayPatient")
