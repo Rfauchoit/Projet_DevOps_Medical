@@ -2,12 +2,10 @@ from flask import render_template
 from werkzeug.utils import redirect
 
 class patientController():
-   
     def __init__(self):
-
         self.idpatient=None
         self.idadresse=None
-   
+
         
     def fetch_patient(self, patient):
         result = patient.fetchAll()
@@ -16,7 +14,7 @@ class patientController():
     def traitementPatient(self, patient, data):
             patient.addPatient(data)
             return redirect("/")
- 
+
 
     def addPatient(self, data):
         return render_template("/addpatient.html", data=data)
@@ -26,10 +24,7 @@ class patientController():
     def traitementUpdatePatient(self, patient, data):
             patient.updatePatient(data, self.idpatient, self.idadresse)
             return redirect("/displayPatient")
-    
 
-     
- 
         
     def updatePatient(self, patient,data):
         self.idpatient=data.get('idpatient') #permet de garder le idpatient pour le update

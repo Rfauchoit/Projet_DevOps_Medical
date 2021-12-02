@@ -29,21 +29,21 @@ class Deplacement(Db):
         rows=self.cursor.fetchone()
         self.cursor.close()
         return rows.get("idpatient")
-     
+
     def addDeplacement(self, patientData):
         """[cette methode sert à ajouter un deplacement en fonction du numéro de secu d'un patient]
 
         Args:
             patientData ([dict]): [les infos du patients]
         """
-       
+
         idPatient=None
         if type(patientData.get('securite_sociale')).__name__!='NoneType':
             idPatient=self.fecthPatientBySecu(patientData)
             
         self.cursor=self.getCursor()
         sql = """INSERT IGNORE INTO deplacement (patient_idpatient, date,cout)
-              VALUES (%s, %s, %s);"""
+                VALUES (%s, %s, %s);"""
         val = (idPatient,  patientData.get('date'), patientData.get('cout'))
         self.cursor.execute(sql, val)
         self.cursor.close()

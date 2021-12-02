@@ -27,20 +27,29 @@ def addPatient():
     data=patient.fetchInfirmier()  
     return patientcontroller.addPatient(data)
 
+@app.route("/addInfirmier")
+def addInfirmier():
+    return render_template("/addInfirmier.html")
 
 @app.route("/traitementPatient", methods=['POST', 'GET'])
 def traitementPatient():
-      data=request.form
-      return patientcontroller.traitementPatient(patient, data)
-  
+    data=request.form
+    return patientcontroller.traitementPatient(patient, data)
+
+@app.route("/traitementInfirmier", methods=['POST', 'GET'])
+def traitementInfirmier():
+    data=request.form
+    return infirmiercontroller.traitementInfirmier(infirmier, data)
+
 @app.route("/addDeplacement")
 def addDeplacement():
     return deplacementcontroller.addDeplacement()
 
+
 @app.route("/traitementDeplacement", methods=['POST', 'GET'])
 def traitementDeplacement():
-      data=request.form
-      return deplacementcontroller.traitementDeplacement(deplacement, data)
+    data=request.form
+    return deplacementcontroller.traitementDeplacement(deplacement, data)
 
 
 @app.route("/updatePatient")  
@@ -50,9 +59,8 @@ def updatePatient():
 
 @app.route("/traitementUpdatePatient", methods=['POST', 'GET'])
 def traitementUpdatePatient():
-      data=request.form
-      return patientcontroller.traitementUpdatePatient(patient, data)
-  
+    data=request.form
+    return patientcontroller.traitementUpdatePatient(patient, data)
 
 @app.route("/updateDeplacement")  
 def updateDeplacement():
@@ -61,8 +69,8 @@ def updateDeplacement():
 
 @app.route("/traitementUpdateDeplacement", methods=['POST', 'GET'])
 def traitementUpdateDeplacement():
-      data=request.form
-      return deplacementcontroller.traitementUpdateDeplacement(deplacement, data)
+    data=request.form
+    return deplacementcontroller.traitementUpdateDeplacement(deplacement, data)
 
 
 @app.route("/displayPatient")
