@@ -45,6 +45,11 @@ def affichagedeplacement():
     return deplacementcontroller.fetch_deplacement(deplacement)
 
 @app.route('/delete/<int:id>', methods = ['GET', 'POST'])
-def delete(id):
+
+def deletepatient(id):
     return patientcontroller.deleteById(patient, id)
+
+@app.route('/delete/<int:id>', methods = ['GET', 'POST'])
+def deleteinfirmier(id):
+    return infirmiercontroller.deleteById(infirmier, id)
 
