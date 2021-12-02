@@ -14,8 +14,7 @@ class Db():
             password=Config.password,
             host=Config.host,
             database=Config.database,
-            port=Config.port,
-            auth_plugin = Config.auth_plugin)
+            port=Config.port)
             
         self.conn.autocommit=True #il est à zero par defaut sur mysql.connector
        
