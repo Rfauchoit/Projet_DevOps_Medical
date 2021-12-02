@@ -74,7 +74,7 @@
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <p class="card-text">Ajouter vos déplacements</p>
+    <p class="card-text">Ajouter un infirmier</p>
     
   </div>
   <div class="card-footer text-muted">
@@ -88,7 +88,7 @@
         <div class="row">
             <div class="col-sm-5">
     
-        <form action="Accueil.html">  
+        <form action="{{url_for(('traitementInfirmier'))}}", method="post">  
         <div class="form-group">  
           <label for="nom">Nom:</label>  
           <input type="texte" class="form-control" id="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
@@ -112,19 +112,23 @@
      <!-- Adresse -->
      <div style="border: solid;" >
     <h4>Adresse</h4>
-        <div class="form-group">  
-          <label for="prenom">Rue:</label>  
-          <input type="texte" class="form-control" id="rue" placeholder="Entrez votre adresse">  
-        </div> 
-        <div class="form-group">  
-          <label for="prenom">Ville:</label>  
-          <input type="texte" class="form-control" id="ville" placeholder="Entrez votre ville">  
-        </div> 
-        <div class="form-group">  
-          <label for="cp">Code postal:</label>  
-          <input type="texte" class="form-control" id="cp" placeholder="Entrez votre code postal">  
-        </div>
+      <div class="form-group">  
+        <label for="rue">Numéro:</label>  
+        <input type="texte" class="form-control" id="num" name="numero" placeholder="Entrez le numéro">  
+      </div> 
+      <div class="form-group">  
+        <label for="rue">Rue:</label>  
+        <input type="texte" class="form-control" id="rue" name="rue" placeholder="Entrez votre adresse">  
+      </div> 
+      <div class="form-group">  
+        <label for="ville">Ville:</label>  
+        <input type="texte" class="form-control" id="ville" name="ville" placeholder="Entrez votre ville">  
+      </div> 
+      <div class="form-group">  
+        <label for="cp">Code postal:</label>  
+        <input type="texte" class="form-control" id="cp" name="cp" placeholder="Entrez votre code postal">  
       </div>
+    </div>
      <!-- Bouton connecter -->
      <button type="submit" class="btn btn-success">Annuler</button>
         <button type="submit" class="btn btn-success">Créer</button>

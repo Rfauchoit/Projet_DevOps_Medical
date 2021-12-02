@@ -27,11 +27,19 @@ def addPatient():
     data=patient.fetchInfirmier()  
     return patientcontroller.addPatient(data)
 
+@app.route("/addInfirmier")
+def addInfirmier():
+    return render_template("/addInfirmier.html")
+
 @app.route("/traitementPatient", methods=['POST', 'GET'])
 def traitementPatient():
-
       data=request.form
       return patientcontroller.traitementPatient(patient, data)
+  
+@app.route("/traitementInfirmier", methods=['POST', 'GET'])
+def traitementInfirmier():
+      data=request.form
+      return infirmiercontroller.traitementInfirmier(infirmier, data)
 
 
 @app.route("/traitementUpdate", methods=['POST', 'GET'])
