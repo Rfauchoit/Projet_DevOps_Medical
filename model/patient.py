@@ -131,23 +131,25 @@ class Patient(Db):
                 idpatient : identifiant patient à mettre à jour
                 idadresse : id adresse correspondant à patient
         """
-      
-        id_infirmier=None
-        if type(patientData.get('numero_pro')).__name__!='NoneType':
-             id_infirmier=self.fetchOneInfirmier(patientData)
-        self.cursor=self.getCursor()
-        sqlp=f"""UPDATE patient SET nom='{patientData.get('nom')}', 
-        prenom='{patientData.get('prenom')}',naissance='{patientData.get('naissance')}',
-        sexe='{patientData.get('sexe')}', infirmier_idinfirmier='{id_infirmier}' where idpatient like '{idpatient}'"""
-        
-        sqla=f"""UPDATE adresse SET numero='{patientData.get('numero')}',
-        rue='{patientData.get('rue')}', ville='{patientData.get('ville')}', 
-        cp='{patientData.get('cp')}'where idadresse like '{idadresse}'""" 
-        
-        self.cursor.execute(sqlp) 
-        self.cursor.execute(sqla) 
        
-        self.cursor.close()
+        try :
+            if type(patientData.get('numero_pro')).__name__ != 'NoneType':
+                id_infirmier = self.fetchOneInfirmier(patientData)
+            self.cursor = self.getCursor()
+            sqlp = f"""UPDATE patient SET nom='{patientData.get('nom')}', 
+                prenom='{patientData.get('prenom')}',naissance='{patientData.get('naissance')}',
+               sexe='{patientData.get('sexe')}', infirmier_idinfirmier='{id_infirmier}' where idpatient like '{idpatient}'"""
+
+            sqla = f"""UPDATE adresse SET numero='{patientData.get('numero')}',
+                  rue='{patientData.get('rue')}', ville='{patientData.get('ville')}', 
+                 cp='{patientData.get('cp')}'where idadresse like '{idadresse}'"""
+
+            self.cursor.execute(sqlp)
+            self.cursor.execute(sqla)
+            self.cursor.close()
+        except :
+            print("Veuillez s'assurer que toute les informations sont remplies")
+     
              
 
     
