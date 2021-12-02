@@ -62,8 +62,8 @@ class Patient(Db):
             return rows.get('idadresse')
     
     
-<<<<<<< HEAD
-=======
+
+
     def fetchOneInfirmier(self, patientData):
         """[Methode qui permet de récuper l'id de l'infirmier à partir de son numéro pro]
 
@@ -101,7 +101,6 @@ class Patient(Db):
         return rows 
     
 
->>>>>>> develop
     def addPatient(self, patientData):
         """[cette methode sert à ajouter un patient dans la base medical, table patient]
         
@@ -123,25 +122,12 @@ class Patient(Db):
         val = (id_adresse,id_infirmier, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
         self.cursor.execute(sql, val)
         self.cursor.close()
-<<<<<<< HEAD
 
-        def updatePatient(self, patientData):
-           """[cette methode sert à mettre à jour les informations d'un patient dans la table patient]
-=======
->>>>>>> develop
 
          
-<<<<<<< HEAD
-           sql=f"""UPDATE continent SET adresse_idadresse='{patientData.get('numero')}',
-           nom='{patientData.get('nom')}', prenom='{patientData.get('prenom')}', 
-           naissance='{patientData.get('naissance')}', sexe='{patientData.get('sexe')}', 
-           securite_sociale='{patientData.get('securite_sociale')}' where idpatient='{patientData.get('idpatient')}'""" 
-           self.cursor.execute(sql) 
-           self.cursor.close()
-    
-=======
+
     def updatePatient(self, patientData, idpatient, idadresse):
-        """[cette methode sert à mettre à jour les informations d'un patient dans la table patient 
+        """[cette methode sert à mettre à jour les informations dun patient dans la table patient 
         et son adresse dans la table adresse]
 
         Args:
@@ -167,7 +153,7 @@ class Patient(Db):
        
         self.cursor.close()
              
->>>>>>> develop
+
 
     
 
@@ -176,4 +162,3 @@ class Patient(Db):
         sql = f"DELETE FROM patient WHERE idpatient = {id}"
         self.cursor.execute(sql)
         self.cursor.close()
-

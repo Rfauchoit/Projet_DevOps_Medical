@@ -51,7 +51,7 @@ class Deplacement(Db):
         pass
 
 
-   def deleteById(self, id):
+    def deleteById(self, id):
         self.cursor=self.getCursor()
         sql = f"DELETE FROM deplacement WHERE iddeplacement = {id}"
         self.cursor.execute(sql)
