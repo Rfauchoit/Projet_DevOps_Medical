@@ -63,6 +63,17 @@ def updateDeplacement():
 def traitementUpdateDeplacement():
       data=request.form
       return deplacementcontroller.traitementUpdateDeplacement(deplacement, data)
+  
+
+@app.route("/updateInfirmier")  
+def updateInfirmier():
+    data=request.args
+    return infirmiercontroller.updateInfirmier(infirmier, data)
+
+@app.route("/traitementUpdateInfirmier", methods=['POST', 'GET'])
+def traitementUpdateInfirmier():
+      data=request.form
+      return infirmiercontroller.traitementUpdateInfirmier(infirmier, data)
 
 
 @app.route("/displayPatient")

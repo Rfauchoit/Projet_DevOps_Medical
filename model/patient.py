@@ -137,10 +137,18 @@ class Patient(Db):
         try :
             if type(patientData.get('numero_pro')).__name__ != 'NoneType':
                 id_infirmier = self.fetchOneInfirmier(patientData)
+            id_adresse=self.fetchAdresse(patientData)
+            if id_adresse==None :
+                self.cursor=self.getCursor()
+                sqla = """INSERT INTO adresse(numero, rue, cp, ville) VALUE (%s,%s,%s,%s);"""
+                vala =(patientData.get('numero'), patientData.get('rue'), patientData.get('cp'), patientData.get('ville'))
+                self.cursor.execute(sqla, vala)
+                id_adresse=self.fetchAdresse(patientData)
+            
             self.cursor = self.getCursor()
             sqlp = f"""UPDATE patient SET nom='{patientData.get('nom')}', 
                 prenom='{patientData.get('prenom')}',naissance='{patientData.get('naissance')}',
-               sexe='{patientData.get('sexe')}', infirmier_idinfirmier='{id_infirmier}' where idpatient like '{idpatient}'"""
+               sexe='{patientData.get('sexe')}', infirmier_idinfirmier='{id_infirmier}', adresse_idadresse='{idadresse}' where idpatient like '{idpatient}'"""
 
             sqla = f"""UPDATE adresse SET numero='{patientData.get('numero')}',
                   rue='{patientData.get('rue')}', ville='{patientData.get('ville')}', 
