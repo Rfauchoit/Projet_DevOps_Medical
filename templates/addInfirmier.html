@@ -1,42 +1,70 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="Description" content="Application web medicale"/>
-    <meta name="tags" content="infirmier, santé, patient"/>
-    <title>Projet Medical</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-          <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="icon" href="">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Ekko Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+    <!-- Police de caractère Kaushan Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@100&display=swap" rel="stylesheet">
+    <!-- Police de caractère Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@100;300&display=swap" rel="stylesheet">
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/1298804a3b.js" crossorigin="anonymous"></script>
+    <!-- CSS de Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Site Bootstrap</title>
 </head>
 
 <body>
-<!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Accueil</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Infirmiers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Patients</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Déplacements</a>
-              </li>
-            </ul>
-          </div>
+
+    <!-- header : navigation et titre -->
+    <header id="top">
+        <div class="container">
+
+            <!-- Barre de navigation -->
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="main-nav">
+                <div class="container">
+
+                   <!-- lien pour remonter en haut de la page -->
+                   <a href="/" class="navbar-brand">Projet Médical</a>
+                   <!-- bouton : burger menu -->
+                   <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                       <!-- icone de burger menu -->
+                       <span class="navbar-toggler-icon"></span>
+                   </button>
+
+                   <!-- cible de notre bouton -->
+                   <div class="collapse navbar-collapse" id="navbarCollapse">
+                       <ul class="navbar-nav ml-auto">
+                           <li class="nav-item mr-1">
+                               <a href="/" class="nav-link">Accueil</a>
+                           </li>   
+                           <li class="nav-item mr-1">
+                               <a href="/displayInfirmier" class="nav-link">Infirmier</a>
+                           </li>
+                           <li class="nav-item mr-1">
+                               <a href="/displayPatient" class="nav-link">Patient</a>
+                           </li>
+                           <li class="nav-item mr-1">
+                               <a href="/displayDeplacement" class="nav-link">Déplacements</a>
+                           </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+
         </div>
-      </nav>
+    </header>
+
 
 <!-- Carte de gestion -->
 
