@@ -90,7 +90,7 @@
         <li>{{value.nom}} {{value.prenom}} {{value.securite_sociale}}
 
             <a href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}"> modifier </a>
-            <a href="{{url_for('delete', id = value.idpatient)}}"> Supprimer </a>
+            <a href="{{url_for('deletepatient', id = value.idpatient)}}"> Supprimer </a>
 
         </li>
 

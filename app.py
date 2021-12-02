@@ -10,7 +10,7 @@ from model.deplacement import Deplacement
 
 app = Flask(__name__)
 deplacement = Deplacement()
-deplacementcontroller = deplacementController
+deplacementcontroller = deplacementController()
 infirmier = Infirmier()
 infirmiercontroller = infirmierController()
 patient=Patient()
@@ -26,9 +26,19 @@ def addPatient():
     data=patient.fetchInfirmier()  
     return patientcontroller.addPatient(data)
 
+
+@app.route("/addDeplacement")
+def addDeplacement():
+    return deplacementcontroller.addDeplacement()
+
+
+@app.route("/traitementDeplacement", methods=['POST', 'GET'])
+def traitementDeplacement():
+      data=request.form
+      return deplacementcontroller.traitementDeplacement(deplacement, data)
+
 @app.route("/traitementPatient", methods=['POST', 'GET'])
 def traitementPatient():
-
       data=request.form
       return patientcontroller.traitementPatient(patient, data)
 
