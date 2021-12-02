@@ -24,7 +24,7 @@ body{
     background-clip: border-box;
     border: 1
 px
- solid rgba(0,0,0,.125);
+ solid rgba(0, 0, 0, 0.048);
     border-radius: 0.25
 rem
 ;
@@ -84,6 +84,6 @@ margin-left: 15%;
     padding-top: 10%;
 }
 
-.adresse {
+/*.adresse {
     border: solid;
-}
+}*/

@@ -11,6 +11,8 @@
     <ul>
     {% for value in data %}
         <li>{{value.nom}} {{value.prenom}} {{value.securite_sociale}}
+            <a href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}"> modifier </a>
+            
             
         </li>
 

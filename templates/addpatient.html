@@ -66,10 +66,22 @@
           <label for="secu">N° sécurité sociale:</label>  
           <input type="texte" class="form-control" id="secu" name="securite_sociale" placeholder="Entrez votre n° de sécurité sociale">  
         </div>  
+        <div class="form-group"> 
+        <label for="sexe">infirmier:</label>  
+        <select class="form-select" aria-label="Default select example" name="numero_pro">
+          <option selected>Liste des infimiers</option>
+          {% for value in data %}
+             <option value="{{value.numero_pro}}}", name="numero_pro" >{{value.nom}} {{value.prenom}} {{value.numero_pro}}</option>
+          {% endfor %}
+             
+        </select>
+      </div>
      <!-- Adresse -->
-     <div style="border: solid;" >
-    <h4>Adresse</h4>
-       <div class="form-group">  
+     <!--style="border: solid;"--> 
+    <div>
+     <h5>Adresse</h5>
+      
+     <div class="form-group">  
           <label for="rue">Numéro:</label>  
           <input type="texte" class="form-control" id="num" name="numero" placeholder="Entrez votre adresse">  
         </div> 
