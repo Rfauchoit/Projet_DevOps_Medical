@@ -7,7 +7,7 @@ class Deplacement(Db):
     def fetchAll(self):
         self.cursor=self.getCursor()
 
-        sqlp=f"SELECT date, cout, nom, prenom FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
+        sqlp=f"SELECT date, cout, nom, prenom, iddeplacement FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
 
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
@@ -53,6 +53,6 @@ class Deplacement(Db):
 
     def deleteById(self, id):
         self.cursor=self.getCursor()
-        sql = f"DELETE FROM deplacement WHERE iddeplacement = {id}"
+        sql = f"DELETE FROM deplacement WHERE iddeplacement='{id}'"
         self.cursor.execute(sql)
         self.cursor.close()
