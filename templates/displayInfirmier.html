@@ -88,9 +88,10 @@
     <ul>
         {% for value in data %}
         <li>{{value.nom}} {{value.prenom}} {{value.numero_pro}}
-            <a href="{{url_for('deleteInfirmier', id = value.idinfirmier)}}" class"btn btn-primary"> Supprimer </a>
+            <a class="btn btn-primary" href=href="{{url_for('deleteInfirmier', id = value.idinfirmier)}}" role="button">Supprimer</a>
         </li>
-
+       
+        
         {% endfor %}
     </ul>
 </body>
