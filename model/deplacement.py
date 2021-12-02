@@ -10,6 +10,7 @@ class Deplacement(Db):
         sqlp=f"""SELECT cout, DATE_FORMAT(date, '%Y-%m-%d') as date, nom,
         prenom, iddeplacement FROM deplacement join  patient on patient_idpatient =patient.idpatient;"""
 
+
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
@@ -48,6 +49,7 @@ class Deplacement(Db):
         self.cursor.close()
         
 
+
     def updateDeplacement(self, deplacementData, iddeplacement):
         
         
@@ -59,4 +61,11 @@ class Deplacement(Db):
             self.cursor.execute(sqlp)
             self.cursor.close()
       
-     
+
+
+    def deleteById(self, id):
+        self.cursor=self.getCursor()
+        sql = f"DELETE FROM deplacement WHERE iddeplacement='{id}'"
+        self.cursor.execute(sql)
+        self.cursor.close()
+

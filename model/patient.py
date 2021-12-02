@@ -6,12 +6,12 @@ class Patient(Db):
     
     def fetchAll(self):
         self.cursor=self.getCursor()
-        sqlp=f"SELECT nom, prenom, securite_sociale, idpatient FROM patient"
+        sqlp="SELECT nom, prenom, securite_sociale, idpatient FROM patient"
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows 
-    
+
 
     def fetchInfirmier(self):
         """[Methode qui permet de récuper nom, prénom, numéro_pro infirmier]
@@ -41,20 +41,11 @@ class Patient(Db):
         return rows 
     
     
+
     def fetchAdresse(self, patientData):
-        """[Methode qui permet de récuper l'idadresse a partir du numéro/rue ille et cp]
-
-         Args:
-           patientData ([type]): [description]
-
-        Returns:
-             [int]: [le idadresse]
-        """
-     
+        # recuperer l'id de l'adresse si elle existe
         self.cursor=self.getCursor()
-        sqlSelect=f"""SELECT idadresse FROM adresse WHERE adresse.numero='{patientData.get('numero')}'
-        and  adresse.rue= '{patientData.get('rue')}'and adresse.cp='{patientData.get('cp')}' 
-        and adresse.ville='{patientData.get('ville')}';"""
+        sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{patientData.get('numero')}' and  adresse.rue= '{patientData.get('rue')}' and adresse.cp='{patientData.get('cp')}' and adresse.ville='{patientData.get('ville')}' ;"
         self.cursor.execute(sqlSelect)
         rows=self.cursor.fetchone()
         self.cursor.close()
@@ -106,8 +97,8 @@ class Patient(Db):
         Args:
             patientData ([dict]): [les infos du patients]
         """
-        id_infirmier=None
         id_adresse=None
+
         if type(patientData.get('numero_pro')).__name__!='NoneType':
              id_infirmier=self.fetchOneInfirmier(patientData)
             
@@ -129,15 +120,13 @@ class Patient(Db):
               VALUES (%s, %s, %s, %s, %s, %s, %s);"""
         val = (id_adresse,id_infirmier, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
             
-       
-
-        
         self.cursor.execute(sql, val)
         self.cursor.close()
 
-         
+     
+
     def updatePatient(self, patientData, idpatient, idadresse):
-        """[cette methode sert à mettre à jour les informations d'un patient dans la table patient 
+        """[cette methode sert à mettre à jour les informations dun patient dans la table patient 
         et son adresse dans la table adresse]
 
         Args:
@@ -163,13 +152,10 @@ class Patient(Db):
         except :
             print("Veuillez s'assurer que toute les informations sont remplies")
      
-             
-
+            
     
-
     def deleteById(self, id):
         self.cursor=self.getCursor()
         sql = f"DELETE FROM patient WHERE idpatient = {id}"
         self.cursor.execute(sql)
         self.cursor.close()
-
