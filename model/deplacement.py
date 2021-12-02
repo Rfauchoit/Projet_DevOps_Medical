@@ -6,13 +6,13 @@ class Deplacement(Db):
     
     def fetchAll(self):
         self.cursor=self.getCursor()
+
         sqlp=f"SELECT date, cout, nom, prenom FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
+
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows
-    
-    
     
     def fecthPatientBySecu(self, data):
         """[récupère le idPatient à partir du numéro sécu]
@@ -49,3 +49,4 @@ class Deplacement(Db):
         
     def updateDeplacement(self, patientData):
         pass
+

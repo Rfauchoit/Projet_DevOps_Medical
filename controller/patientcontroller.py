@@ -10,7 +10,7 @@ class patientController():
    
         
     def fetch_patient(self, patient):
-        result = patient.fetchAll() 
+        result = patient.fetchAll()
         return render_template("displayPatient.html", data = result)
 
     def traitementPatient(self, patient, data):
