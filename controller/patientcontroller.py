@@ -23,9 +23,13 @@ class patientController():
 
     
 
-    def traitementUpdate(self, patient, data):
+    def traitementUpdatePatient(self, patient, data):
             patient.updatePatient(data, self.idpatient, self.idadresse)
             return redirect("/displayPatient")
+    
+    def updateDeplacement(deplacement, data):
+        return render_template("updateDeplacement.html", data=data)
+     
  
         
     def updatePatient(self, patient,data):
