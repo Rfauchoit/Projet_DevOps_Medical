@@ -33,24 +33,44 @@ def addInfirmier():
 
 @app.route("/traitementPatient", methods=['POST', 'GET'])
 def traitementPatient():
-      data=request.form
-      return patientcontroller.traitementPatient(patient, data)
-  
+    data=request.form
+    return patientcontroller.traitementPatient(patient, data)
+
 @app.route("/traitementInfirmier", methods=['POST', 'GET'])
 def traitementInfirmier():
-      data=request.form
-      return infirmiercontroller.traitementInfirmier(infirmier, data)
+    data=request.form
+    return infirmiercontroller.traitementInfirmier(infirmier, data)
+
+@app.route("/addDeplacement")
+def addDeplacement():
+    return deplacementcontroller.addDeplacement()
 
 
-@app.route("/traitementUpdate", methods=['POST', 'GET'])
-def traitementUpdate():
-      data=request.form
-      return patientcontroller.traitementUpdate(patient, data)
-  
-@app.route("/updatePatient") 
+@app.route("/traitementDeplacement", methods=['POST', 'GET'])
+def traitementDeplacement():
+    data=request.form
+    return deplacementcontroller.traitementDeplacement(deplacement, data)
+
+
+@app.route("/updatePatient")  
 def updatePatient():
     data=request.args
     return patientcontroller.updatePatient(patient, data)
+
+@app.route("/traitementUpdatePatient", methods=['POST', 'GET'])
+def traitementUpdatePatient():
+    data=request.form
+    return patientcontroller.traitementUpdatePatient(patient, data)
+
+@app.route("/updateDeplacement")  
+def updateDeplacement():
+    data=request.args
+    return deplacementcontroller.updateDeplacement(data)
+
+@app.route("/traitementUpdateDeplacement", methods=['POST', 'GET'])
+def traitementUpdateDeplacement():
+    data=request.form
+    return deplacementcontroller.traitementUpdateDeplacement(deplacement, data)
 
 
 @app.route("/displayPatient")
@@ -73,5 +93,9 @@ def deletePatient(id):
 @app.route('/deleteInfirmier/<int:id>', methods = ['GET', 'POST'])
 def deleteInfirmier(id):
     return infirmiercontroller.deleteById(infirmier, id)
+
+@app.route('/deleteDeplacement/<int:id>', methods = ['GET', 'POST'])
+def deleteDeplacement(id):
+    return deplacementcontroller.deleteById(deplacement, id)
 
 

@@ -65,7 +65,19 @@
         </div>
     </header>
 
-
+    <div class="card text-center">
+        <div class="card-header">
+          
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text">Ajouter vos patients.</p>
+          
+        </div>
+        <div class="card-footer text-muted">
+          
+        </div>
+      </div>
 
     <!--Formulaire-->
 
@@ -73,19 +85,20 @@
         <div class="row">
             <div class="col-sm-5">
     
-        <form action="Accueil.html">  
-        <div class="form-group">  
-          <label for="nomp">Nom du patient:</label>  
-          <input type="texte" class="form-control" id="nomp" placeholder="Entrez le nom du patient" minlenght="2" maxlenght="26" required>  
-        </div>  
-        <div class="form-group">  
-            <label for="datedep">Date:</label>  
-            <input type="date" class="form-control" id="datdep" placeholder="">  
-          </div>  
-        <div class="form-group">  
-          <label for="cout">Coût</label>  
-          <input type="texte" class="form-control" id="cout" placeholder="">  
-        </div>  
+                <form action="{{url_for('traitementUpdateDeplacement')}}",  method="post">  
+                    <div class="form-group">  
+                      <label for="nomp">Nom du patient:</label>  
+                      <input type="texte" class="form-control" id="nomp" name="nom" value="{{data.get('nom')}}" placeholder="Entrez le nom du patient" minlenght="2" maxlenght="26" required>  
+                    </div> 
+ 
+                    <div class="form-group">  
+                        <label for="datedep">Date:</label>  
+                        <input type="date" class="form-control" id="datdep" name="date" value="{{data.get('date')}}" placeholder="">  
+                      </div>  
+                    <div class="form-group">  
+                      <label for="cout">Coût</label>  
+                      <input type="texte" class="form-control" id="cout" name="cout" value="{{data.get('cout')}}" placeholder="">  
+                    </div>  
      <!-- Bouton connecter -->
      <button type="submit" class="btn btn-success">Annuler</button>
         <button type="submit" class="btn btn-success">Modifier</button>

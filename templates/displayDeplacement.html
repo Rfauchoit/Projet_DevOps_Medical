@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,7 +47,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item mr-1">
                                 <a href="/" class="nav-link">Accueil</a>
-                            </li>   
+                            </li>
                             <li class="nav-item mr-1">
                                 <a href="/displayInfirmier" class="nav-link">Infirmier</a>
                             </li>
@@ -70,25 +71,36 @@
             <div class="col-sm-5">
                 <div class="card text-center">
                     <div class="card-header">
-                      
+
                     </div>
                     <div class="card-body">
-                      <h5 class="card-title"></h5>
-                      <p class="card-text">Liste des déplcaments</p>
-                      
+
+                        <h5 class="card-title"></h5>
+
+                        <p class="card-text">Liste des déplacements</p>
+
+
                     </div>
                     <div class="card-footer text-muted">
-                      
+
                     </div>
+
                   </div>
 
+  
     <ul>
-        {% for value in data %}
-            <li>{{value.patient_idpatient}} {{value.date}} {{value.cout}}
-                
-            </li>
-
-        {% endfor %}
+    {% for value in data %}
+    <li>{{value.nom}} {{value.prenom}} {{value.date}} {{value.cout}}
+        <a  class="btn btn-primary" href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
+        &cout={{value.cout}}&date={{value.date}}" role="button"> modifier </a>
+        <a class="btn btn-primary" href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a>
+    </li>
+    {% endfor %}
     </ul>
+                </div>
+
+
+                    
 </body>
+
 </html>

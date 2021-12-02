@@ -30,7 +30,7 @@
         <div class="container">
 
             <!-- Barre de navigation -->
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="main-nav">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="main-nav">
                 <div class="container">
   <!-- lien pour remonter en haut de la page -->
   <a href="/" class="navbar-brand">Projet Médical</a>
@@ -71,9 +71,9 @@
       <div class="card-body">
         <h5 class="card-title"></h5>
         <p class="card-text">Ajouter vos patients.</p>
-
       </div>
       <div class="card-footer text-muted">
+
 
       </div>
     </div>
@@ -84,7 +84,7 @@
         <div class="row">
             <div class="col-sm-5">
     
-        <form action="{{url_for(('traitementPatient'))}}", method="post">  
+        <form action="{{url_for('traitementPatient')}}", method="post">  
         <div class="form-group">  
           <label for="nom">Nom:</label>  
           <input type="texte" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
@@ -103,42 +103,43 @@
         </div>  
         <div class="form-group">  
           <label for="secu">N° sécurité sociale:</label>  
-          <input type="texte" class="form-control" id="secu" name="securite_sociale" placeholder="Entrez votre n° de sécurité sociale">  
+          <input type="texte" class="form-control" id="secu" name="securite_sociale" placeholder="Entrez votre n° de sécurité sociale" >  
         </div>  
         <div class="form-group"> 
-        <label for="sexe">infirmier:</label>  
+        <label for="sexe">Liste des infirmiers:</label>  
         <select class="form-select" aria-label="Default select example" name="numero_pro">
-          <option selected>Liste des infimiers</option>
+          <option selected>choisissez votre infirmier</option>
           {% for value in data %}
-             <option value="{{value.numero_pro}}}", name="numero_pro" >{{value.nom}} {{value.prenom}} {{value.numero_pro}}</option>
+            <option value="{{value.numero_pro}}}", name="numero_pro" >{{value.nom}} {{value.prenom}} {{value.numero_pro}}</option>
           {% endfor %}
-             
+          
         </select>
       </div>
-     <!-- Adresse -->
-     <!--style="border: solid;"--> 
-    <div>
-     <h5>Adresse</h5>
+    <!-- Adresse -->
+    <!--style="border: solid;"--> 
+    <div style="border: 4mm ridge rgba(170, 50, 220, .6);">
+    <h5>Adresse</h5>
       
-     <div class="form-group">  
+    <div class="form-group">  
           <label for="rue">Numéro:</label>  
-          <input type="texte" class="form-control" id="num" name="numero" placeholder="Entrez le numéro">  
+          <input type="texte" class="form-control" id="num" name="numero" value="0" placeholder="Entrez votre adresse">  
+
         </div> 
         <div class="form-group">  
           <label for="rue">Rue:</label>  
-          <input type="texte" class="form-control" id="rue" name="rue" placeholder="Entrez votre adresse">  
+          <input type="texte" class="form-control" id="rue" name="rue" value="0" placeholder="Entrez votre adresse">  
         </div> 
         <div class="form-group">  
           <label for="ville">Ville:</label>  
-          <input type="texte" class="form-control" id="ville" name="ville" placeholder="Entrez votre ville">  
+          <input type="texte" class="form-control" id="ville" name="ville" value="0" placeholder="Entrez votre ville">  
         </div> 
         <div class="form-group">  
           <label for="cp">Code postal:</label>  
-          <input type="texte" class="form-control" id="cp" name="cp" placeholder="Entrez votre code postal">  
+          <input type="texte" class="form-control" id="cp" name="cp" value="0" placeholder="Entrez votre code postal">  
         </div>
       </div>
-     <!-- Bouton connecter -->
-     <button type="submit" class="btn btn-success">Annuler</button>
+    <!-- Bouton connecter -->
+    <button type="submit" class="btn btn-success">Annuler</button>
         <button type="submit" class="btn btn-success">Créer</button>
       </form> 
         <div class="col-sm-5">

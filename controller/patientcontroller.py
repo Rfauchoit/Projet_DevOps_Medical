@@ -23,19 +23,22 @@ class patientController():
 
     
 
-    def traitementUpdate(self, patient, data):
+    def traitementUpdatePatient(self, patient, data):
             patient.updatePatient(data, self.idpatient, self.idadresse)
             return redirect("/displayPatient")
+    
+
+     
  
         
     def updatePatient(self, patient,data):
-        
         self.idpatient=data.get('idpatient') #permet de garder le idpatient pour le update
-        data1=patient.fetchAdressePatient(data)
-        data2=patient.fetchInfirmierPatient(data1)
-        data1.update(data2)
-        self.idadresse=data1.get('idadresse')
-        return render_template("updatePatient.html", data=data1)
+        dataPatient=patient.fetchAdressePatient(data)
+        dataPatientAdd=patient.fetchInfirmierPatient(dataPatient)
+        if (dataPatientAdd!=None):
+            dataPatient.update(dataPatientAdd)
+        self.idadresse=dataPatient.get('idadresse')
+        return render_template("updatePatient.html", data=dataPatient)
 
 
     def deleteById(self, patient, id):
