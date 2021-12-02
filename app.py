@@ -36,5 +36,9 @@ def affichageinfirmier():
     return infirmiercontroller.fetch_infirmier(infirmier)
 
 @app.route('/delete/<int:id>', methods = ['GET', 'POST'])
-def delete(id):
+def deletepatient(id):
     return patientcontroller.deleteById(patient, id)
+
+@app.route('/delete/<int:id>', methods = ['GET', 'POST'])
+def deleteinfirmier(id):
+    return infirmiercontroller.deleteById(infirmier, id)
