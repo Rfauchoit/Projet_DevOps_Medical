@@ -86,6 +86,8 @@
     <ul>
     {% for value in data %}
         <li>{{value.nom}} {{value.prenom}} {{value.date}} {{value.cout}}</li>
+        <a href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
+        &cout={{value.cout}}&date={{value.date}}"> modifier </a>
 
 
         {% endfor %}

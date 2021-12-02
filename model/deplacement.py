@@ -7,7 +7,7 @@ class Deplacement(Db):
     def fetchAll(self):
         self.cursor=self.getCursor()
 
-        sqlp=f"SELECT date, cout, nom, prenom FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
+        sqlp=f"SELECT date, cout, nom, prenom, iddeplacement FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
 
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
@@ -46,7 +46,14 @@ class Deplacement(Db):
         self.cursor.execute(sql, val)
         self.cursor.close()
         
-        
-    def updateDeplacement(self, patientData):
-        pass
 
+    
+    def updateDeplacement(self, deplacementData, idpatient, idadresse):
+        try :
+            sqlp = f"""UPDATE deplacement SET cout='{deplacementData.get('cout')}', date='{deplacementData.get('date')}'
+            where iddeplacement like '{deplacementData.get('iddeplacement')}' """
+            self.cursor.execute(sqlp)
+            self.cursor.close()
+        except :
+            print("Veuillez s'assurer que toute les informations sont remplies")
+     
