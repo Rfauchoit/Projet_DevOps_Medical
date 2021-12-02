@@ -15,8 +15,8 @@ class infirmierController():
         return redirect("/displayInfirmier")
 
     def traitementInfirmier(self, infirmier, data):
-            infirmier.addInfirmier(data)
-            return redirect("/")
- 
+        infirmier.addInfirmier(data)
+        return redirect("/displayInfirmier")
+
     def addInfirmier(self, data):
         return render_template("/addpatient.html", data=data)

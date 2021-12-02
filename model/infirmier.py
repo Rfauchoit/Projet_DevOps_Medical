@@ -23,11 +23,11 @@ class Infirmier(Db):
     def fetchAdresse(self, infirmierData):
         """[Methode qui permet de récuper l'idadresse à partir du numéro/rue ville et cp]
 
-         Args:
-           infirmierData ([type]): [description]
+        Args:
+            infirmierData ([type]): [description]
 
         Returns:
-             [int]: [le idadresse]
+            [int]: [le idadresse]
         """
         self.cursor=self.getCursor()
         sqlSelect=f"""SELECT idadresse FROM adresse WHERE adresse.numero='{infirmierData.get('numero')}'
@@ -48,20 +48,20 @@ class Infirmier(Db):
         """
         id_adresse=None
         
-        if type(infirmierData.get('numero')).__name__!= "NoneType" :
-            id_adresse=self.fetchAdresse(infirmierData)
+        # if type(infirmierData.get('numero')).__name__!= "NoneType" :
+        id_adresse=self.fetchAdresse(infirmierData)
         if id_adresse==None :
             self.cursor=self.getCursor()
             sqla = """INSERT INTO adresse(numero, rue, cp, ville) VALUE (%s,%s,%s,%s);"""
             vala =(infirmierData.get('numero'), infirmierData.get('rue'), infirmierData.get('cp'), infirmierData.get('ville'))
             self.cursor.execute(sqla, vala)
-            id_adresse=self.fetchAdresse(infirmierData)
-            
+            id_adresse==self.fetchAdresse(infirmierData)
         
         self.cursor=self.getCursor()
-        sql = """INSERT INTO infirmier (adresse_idadresse, nom, prenom, numero_pro, tel_pro, tel_perso)
+        sqlb = """INSERT INTO infirmier (adresse_idadresse, numero_pro, nom, prenom, tel_pro, tel_perso)
                 VALUES (%s, %s, %s, %s, %s, %s);"""
-        val = (id_adresse, infirmierData.get('nom'),  infirmierData.get('prenom'), infirmierData.get('numero_pro'), infirmierData.get('tel_pro'), infirmierData.get('tel_perso') )
-        self.cursor.execute(sql, val)
+        valb = (id_adresse, infirmierData.get('numero_pro'), infirmierData.get('nom'), infirmierData.get('prenom'), infirmierData.get('tel_pro'), infirmierData.get('tel_perso'))
+        
+        self.cursor.execute(sqlb, valb)
         self.cursor.close()
 
