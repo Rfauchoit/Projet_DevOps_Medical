@@ -14,6 +14,15 @@ class deplacementController():
     def traitementDeplacement(sef, deplacement, data):
         deplacement.addDeplacement(data)
         return redirect("/displayPatient")
+    
+    
+    def updateDeplacement(self, deplacement, data):
+        return render_template("updateDeplacement.html", data=data)
 
+
+    def traitementUpdateDeplacement(self, patient, data):
+        patient.updateDeplacement(data)
+        return redirect("/displayPatient")
+    
     
     

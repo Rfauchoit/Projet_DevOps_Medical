@@ -6,11 +6,13 @@ class Deplacement(Db):
     
     def fetchAll(self):
         self.cursor=self.getCursor()
-        sqlp=f"SELECT nom, date, cout FROM deplacement"
+        sqlp=f"SELECT date, cout, nom, prenom FROM deplacement join  patient on patient_idpatient =patient.idpatient;"
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows
+    
+    
     
     def fecthPatientBySecu(self, data):
         """[récupère le idPatient à partir du numéro sécu]
@@ -43,3 +45,7 @@ class Deplacement(Db):
         val = (idPatient,  patientData.get('date'), patientData.get('cout'))
         self.cursor.execute(sql, val)
         self.cursor.close()
+        
+        
+    def updateDeplacement(self, patientData):
+        pass

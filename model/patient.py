@@ -60,7 +60,8 @@ class Patient(Db):
         self.cursor.close()
         if (type(rows).__name__!= "NoneType") :
             return rows.get('idadresse')
-        
+    
+    
     def fetchOneInfirmier(self, patientData):
         """[Methode qui permet de récuper l'id de l'infirmier à partir de son numéro pro]
 
