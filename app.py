@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from werkzeug.utils import redirect
 
 from model.patient import Patient
 from controller.patientcontroller import patientController
