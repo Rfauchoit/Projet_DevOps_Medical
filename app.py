@@ -86,4 +86,8 @@ def deletePatient(id):
 def deleteInfirmier(id):
     return infirmiercontroller.deleteById(infirmier, id)
 
+@app.route('/deleteDeplacement/<int:id>', methods = ['GET', 'POST'])
+def deleteDeplacement(id):
+    return deplacementcontroller.deleteById(deplacement, id)
+
 

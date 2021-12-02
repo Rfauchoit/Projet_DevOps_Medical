@@ -24,5 +24,8 @@ class deplacementController():
         patient.updateDeplacement(data)
         return redirect("/displayPatient")
     
+    def deleteById(self, deplacement, id):
+        deplacement.deleteById(id)
+        return redirect("/displayDeplacement")
     
     

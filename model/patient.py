@@ -62,6 +62,8 @@ class Patient(Db):
             return rows.get('idadresse')
     
     
+
+
     def fetchOneInfirmier(self, patientData):
         """[Methode qui permet de récuper l'id de l'infirmier à partir de son numéro pro]
 
@@ -101,7 +103,7 @@ class Patient(Db):
 
     def addPatient(self, patientData):
         """[cette methode sert à ajouter un patient dans la base medical, table patient]
-
+        
         Args:
             patientData ([dict]): [les infos du patients]
         """
@@ -121,9 +123,11 @@ class Patient(Db):
         self.cursor.execute(sql, val)
         self.cursor.close()
 
+
          
+
     def updatePatient(self, patientData, idpatient, idadresse):
-        """[cette methode sert à mettre à jour les informations d'un patient dans la table patient 
+        """[cette methode sert à mettre à jour les informations dun patient dans la table patient 
         et son adresse dans la table adresse]
 
         Args:
@@ -152,6 +156,7 @@ class Patient(Db):
      
              
 
+
     
 
     def deleteById(self, id):
@@ -159,4 +164,3 @@ class Patient(Db):
         sql = f"DELETE FROM patient WHERE idpatient = {id}"
         self.cursor.execute(sql)
         self.cursor.close()
-
