@@ -1,18 +1,98 @@
-body{
-    background-color: #507f88;
-    background-image: url('');
-    background-size:cover;
+/* header */ 
+
+header {
+    background: url('img/bgphotshop.png');
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.text-intro {
+    padding-top: 300px;
+    padding-bottom: 200px;
+}
+
+.preTxt {
+    font-style: italic ;
+    font-size: 70px;
+    margin: 0;
+    color:#2f2d2d;
+    line-height: 0.5;
+}
+
+h1 {
+    font-size: 150px;
+    color: #2f2d2d;
+    font-family: 'Kaushan Script';
+    font-weight: 700;
+}
+
+
+/* nav */ 
+
+.navbar-brand {
+    font-size: 45px!important; /* on écrit par-dessus le style de la classe navbar-brand Bootstrap */ 
+    font-family: 'Kaushan Script'!important; 
+}
+
+.navbar a {
+    color: #fff!important;
+    font-family: 'Lato';
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* à propos */ 
+
+#aPropos {
+    margin-top: 75px;
+    padding-bottom: 75px;
+    border-bottom: 1px dashed #2f2d2d;
+}
+
+
+/* 3 icones */ 
+
+.icones {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+/* premiere banniere */ 
+
+#ban1 {
+    position: relative;
+    background: url(img/banniere1.png);
+    background-position: right; /*focus sur partie droite de l'img*/ 
+    background-attachment: fixed; /*effet */
     background-repeat: no-repeat;
-    background-image: url();
+    text-align: center;
+}
 
 
+/* galerie */ 
+
+#galerie {
+    padding-bottom: 100px;
+}
+
+.h2Photos {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Kaushan Script';
+    font-size: 70px;
+}
+
+#galerie .container p {
+    padding-bottom: 40px;
 }
 
 .col-sm-5{
     margin: auto;
 
 }
-
 
 .card {
     position: relative;
@@ -30,10 +110,23 @@ rem
 ;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #5c7a88;
-    border-color: #5c7a88;
+body{
+    background-color: #95edff;
+    background-image: url('');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url();
+
+
+}
+
+#haut {
+    padding-left: 5%;
+    padding-top: 10%;
+}
+
+.adresse {
+    border: solid;
 }
 
 /* bouton */
@@ -71,6 +164,7 @@ margin-left: 15%;
    padding-right: 10%;
    margin-bottom: 10%;
   
+<<<<<<< HEAD
 }
 
 #grille {
@@ -87,3 +181,6 @@ margin-left: 15%;
 /*.adresse {
     border: solid;
 }*/
+=======
+}
+>>>>>>> develop

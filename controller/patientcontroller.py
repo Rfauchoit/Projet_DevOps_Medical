@@ -4,18 +4,10 @@ from werkzeug.utils import redirect
 class patientController():
    
     def __init__(self):
-    #    self.setidpatient(i)
+
         self.idpatient=None
         self.idadresse=None
-      
-        
-    # @property
-    # def setidpatient(self):
-    #     return self._idpatient
-    
-    # @setidpatient.setter
-    # def setidpatient(self, id):
-    #     self._idpatient=id
+   
         
     def fetch_patient(self, patient):
         result = patient.fetchAll() 
@@ -25,13 +17,15 @@ class patientController():
             patient.addPatient(data)
             return redirect("/")
  
+
     def addPatient(self, data):
         return render_template("/addpatient.html", data=data)
+
     
 
     def traitementUpdate(self, patient, data):
             patient.updatePatient(data, self.idpatient, self.idadresse)
-            return redirect("/")
+            return redirect("/displayPatient")
  
         
     def updatePatient(self, patient,data):
@@ -42,3 +36,10 @@ class patientController():
         data1.update(data2)
         self.idadresse=data1.get('idadresse')
         return render_template("updatePatient.html", data=data1)
+
+
+    def deleteById(self, patient, id):
+        patient.deleteById(id)
+        return redirect("/displayPatient")
+
+
