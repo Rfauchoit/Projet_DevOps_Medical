@@ -23,9 +23,10 @@ class Patient(Db):
             return rows.get('idadresse')
     
     
+    
     def addPatient(self, patientData):
         """[cette methode sert à ajouter un patient dans la base medical, table patient]
-        
+
         Args:
             patientData ([dict]): [les infos du patients]
         """
@@ -40,6 +41,7 @@ class Patient(Db):
         self.cursor.execute(sql, val)
         self.cursor.close()
 
+   
         def updatePatient(self, patientData):
            """[cette methode sert à mettre à jour les informations d'un patient dans la table patient]
 
@@ -55,7 +57,6 @@ class Patient(Db):
            self.cursor.execute(sql) 
            self.cursor.close()
     
-
     
     def deleteById(self, id):
         self.cursor=self.getCursor()

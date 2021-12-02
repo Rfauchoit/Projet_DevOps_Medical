@@ -30,7 +30,7 @@
         <div class="container">
 
             <!-- Barre de navigation -->
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="main-nav">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark" id="main-nav">
                 <div class="container">
   <!-- lien pour remonter en haut de la page -->
   <a href="/" class="navbar-brand">Projet Médical</a>
@@ -64,7 +64,19 @@
         </div>
     </header>
 
-
+    <div class="card text-center">
+      <div class="card-header">
+        
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Ajouter vos patients.</p>
+        
+      </div>
+      <div class="card-footer text-muted">
+        
+      </div>
+    </div>
 
     <!--Formulaire-->
 
@@ -72,7 +84,7 @@
         <div class="row">
             <div class="col-sm-5">
     
-        <form action="{{url_for(('traitementPatient'))}}", method="post">  
+        <form action="{{url_for('traitementPatient')}}", method="post">  
         <div class="form-group">  
           <label for="nom">Nom:</label>  
           <input type="texte" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
@@ -93,10 +105,22 @@
           <label for="secu">N° sécurité sociale:</label>  
           <input type="texte" class="form-control" id="secu" name="securite_sociale" placeholder="Entrez votre n° de sécurité sociale">  
         </div>  
+        <div class="form-group"> 
+        <label for="sexe">Liste des infirmiers:</label>  
+        <select class="form-select" aria-label="Default select example" name="numero_pro">
+          <option selected>choisissez votre infirmier</option>
+          {% for value in data %}
+             <option value="{{value.numero_pro}}}", name="numero_pro" >{{value.nom}} {{value.prenom}} {{value.numero_pro}}</option>
+          {% endfor %}
+             
+        </select>
+      </div>
      <!-- Adresse -->
-     <div style="border: solid;" >
-    <h4>Adresse</h4>
-       <div class="form-group">  
+     <!--style="border: solid;"--> 
+    <div>
+     <h5>Adresse</h5>
+      
+     <div class="form-group">  
           <label for="rue">Numéro:</label>  
           <input type="texte" class="form-control" id="num" name="numero" placeholder="Entrez votre adresse">  
         </div> 

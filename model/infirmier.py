@@ -6,8 +6,14 @@ class Infirmier(Db):
     
     def fetchAll(self):
         self.cursor=self.getCursor()
-        sqlp=f"SELECT nom, prenom, numero_pro FROM infirmier"
+        sqlp=f"SELECT nom, prenom, numero_pro, idinfirmier FROM infirmier"
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows
+    
+    def deleteById(self, id):
+        self.cursor=self.getCursor()
+        sql = f"DELETE FROM infirmier WHERE idinfirmier = {id}"
+        self.cursor.execute(sql)
+        self.cursor.close()
