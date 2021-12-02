@@ -33,29 +33,29 @@
             <nav class="navbar navbar-expand-md bg-dark navbar-dark " id="main-nav">
                 <div class="container">
 
-                 <!-- lien pour remonter en haut de la page -->
-                 <a href="/" class="navbar-brand">Projet Médical</a>
-                 <!-- bouton : burger menu -->
-                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                     <!-- icone de burger menu -->
-                     <span class="navbar-toggler-icon"></span>
-                 </button>
+                    <!-- lien pour remonter en haut de la page -->
+                    <a href="/" class="navbar-brand">Projet Médical</a>
+                    <!-- bouton : burger menu -->
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <!-- icone de burger menu -->
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                 <!-- cible de notre bouton -->
-                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                     <ul class="navbar-nav ml-auto">
-                         <li class="nav-item mr-1">
-                             <a href="/" class="nav-link">Accueil</a>
-                         </li>   
-                         <li class="nav-item mr-1">
-                             <a href="/displayInfirmier" class="nav-link">Infirmier</a>
-                         </li>
-                         <li class="nav-item mr-1">
-                             <a href="/displayPatient" class="nav-link">Patient</a>
-                         </li>
-                         <li class="nav-item mr-1">
-                             <a href="/displayDeplacement" class="nav-link">Déplacements</a>
-                         </li>
+                    <!-- cible de notre bouton -->
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item mr-1">
+                                <a href="/" class="nav-link">Accueil</a>
+                            </li>   
+                            <li class="nav-item mr-1">
+                                <a href="/displayInfirmier" class="nav-link">Infirmier</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="/displayPatient" class="nav-link">Patient</a>
+                            </li>
+                            <li class="nav-item mr-1">
+                                <a href="/displayDeplacement" class="nav-link">Déplacements</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -74,7 +74,7 @@
                     </div>
                     <div class="card-body">
                       <h5 class="card-title"></h5>
-                      <p class="card-text">Afficher les infirmiers</p>
+                      <p class="card-text">Afficher les déplcaments</p>
                       
                     </div>
                     <div class="card-footer text-muted">
@@ -82,15 +82,14 @@
                     </div>
                   </div>
 
-    <h1>Listes des patients</h1>
+    <h1>Listes des déplacements</h1>
     <ul>
-        {% for value in data %}
-        <li>{{value.nom}} {{value.prenom}} {{value.numero_pro}
-
+    {% for value in data %}
+        <li>{{value.nom}} {{value.date}} {{value.cout}}
+            
         </li>
 
-        {% endfor %}
+    {% endfor %}
     </ul>
 </body>
-
 </html>
