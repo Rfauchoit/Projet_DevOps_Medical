@@ -6,14 +6,14 @@ class Patient(Db):
     
     def fetchAll(self):
         self.cursor=self.getCursor()
-        sqlp="SELECT nom, prenom, securite_sociale FROM patient"
+        sqlp="SELECT nom, prenom, securite_sociale, idpatient FROM patient"
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows 
     
     def fetchAdresse(self, patientData):
-       # recuperer l'id de l'adresse si elle existe
+        # recuperer l'id de l'adresse si elle existe
         self.cursor=self.getCursor()
         sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{patientData.get('numero')}' and  adresse.rue= '{patientData.get('rue')}' and adresse.cp='{patientData.get('cp')}' and adresse.ville='{patientData.get('ville')}' ;"
         self.cursor.execute(sqlSelect)
@@ -24,6 +24,10 @@ class Patient(Db):
     
     
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
     def addPatient(self, patientData):
         """[cette methode sert à ajouter un patient dans la base medical, table patient]
 
@@ -40,6 +44,7 @@ class Patient(Db):
         val = (id_adresse,None, patientData.get('nom'),  patientData.get('prenom'), patientData.get('naissance'),  patientData.get('sexe'),   patientData.get('securite_sociale') )
         self.cursor.execute(sql, val)
         self.cursor.close()
+<<<<<<< HEAD
    
    
         def updatePatient(self, patientData):
@@ -57,3 +62,11 @@ class Patient(Db):
            self.cursor.execute(sql) 
            self.cursor.close()
     
+=======
+    
+    def deleteById(self, id):
+        self.cursor=self.getCursor()
+        sql = f"DELETE FROM patient WHERE idpatient = {id}"
+        self.cursor.execute(sql)
+        self.cursor.close()
+>>>>>>> develop

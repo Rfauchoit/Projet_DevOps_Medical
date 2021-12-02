@@ -32,14 +32,19 @@ def traitementPatient():
     return patientcontroller.traitementPatient(patient, data)
     
 @app.route("/displayPatient")
-def affichage():
+def affichagepatient():
     return patientcontroller.fetch_patient(patient)
 
 @app.route("/displayInfirmier")
-def affichagee():
+def affichageinfirmier():
     return infirmiercontroller.fetch_infirmier(infirmier)
+
 
 @app.route("/displayDeplacement")
 def affichagedeplacement():
     return deplacementcontroller.fetch_deplacement(deplacement)
+
+@app.route('/delete/<int:id>', methods = ['GET', 'POST'])
+def delete(id):
+    return patientcontroller.deleteById(patient, id)
 

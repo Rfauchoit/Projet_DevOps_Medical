@@ -13,6 +13,7 @@ class patientController():
     def addPatient(self):
         return render_template("addpatient.html")
     
+
     
     def traitementUpdate(self, patient, data):
             patient.addPatient(data)
@@ -20,3 +21,8 @@ class patientController():
  
     def updatePatient(self):
         return render_template("updatepatient.html")
+
+    def deleteById(self, patient, id):
+        patient.deleteById(id)
+        return redirect("/displayPatient")
+
