@@ -6,8 +6,9 @@ class Deplacement(Db):
     
     def fetchAll(self):
         self.cursor=self.getCursor()
-        sqlp=f"SELECT nom, date, cout FROM deplacement"
+        sqlp=f"SELECT patient_idpatient, date, cout FROM deplacement"
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchall()
         self.cursor.close()
         return rows
+    
