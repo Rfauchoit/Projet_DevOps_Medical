@@ -27,7 +27,7 @@ class patientController():
             patient.updatePatient(data, self.idpatient, self.idadresse)
             return redirect("/displayPatient")
     
-   
+
      
  
         
