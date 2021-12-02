@@ -111,8 +111,8 @@ class Patient(Db):
         if type(patientData.get('numero_pro')).__name__!='NoneType':
              id_infirmier=self.fetchOneInfirmier(patientData)
             
-        if type(patientData.get('numero')).__name__!= "NoneType" :
-            id_adresse=self.fetchAdresse(patientData)
+        #if type(patientData.get('numero')).__name__!= "NoneType" :
+        id_adresse=self.fetchAdresse(patientData)
        
         if id_adresse==None :
              self.cursor=self.getCursor()
