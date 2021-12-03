@@ -27,7 +27,7 @@ class Patient(Db):
         if type(patientData.get('numero_pro')).__name__!='NoneType':
              id_infirmier=self.fetchOneInfirmier(patientData)
             
-        id_adresse=self.fetchAdresse(patientData)
+        id_adresse=self.fetchAdresseByData(patientData)
        
         if id_adresse==None :
              self.cursor=self.getCursor()
@@ -177,4 +177,4 @@ class Patient(Db):
         return rows 
     
 
-    
+        

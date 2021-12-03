@@ -53,18 +53,18 @@ class Deplacement(Db):
         self.cursor.close()
 
 #-------------------Useful method--------------------------------------#
-def fecthPatientBySecu(self, data):
-        """[récupère le idPatient à partir du numéro sécu]
-
-        Args:
-            data (int): [numéro secu]
-        return idpatient
-        """
-        self.cursor=self.getCursor()
-        sqlp=f"SELECT idpatient FROM patient where securite_sociale='{data.get('securite_sociale')}'"
-        self.cursor.execute(sqlp)
-        rows=self.cursor.fetchone()
-        self.cursor.close()
-        if rows!=None:
-            return rows.get("idpatient")
-     
+    def fecthPatientBySecu(self, data):
+            """[récupère le idPatient à partir du numéro sécu]
+    
+            Args:
+                data (int): [numéro secu]
+            return idpatient
+            """
+            self.cursor=self.getCursor()
+            sqlp=f"SELECT idpatient FROM patient where securite_sociale='{data.get('securite_sociale')}'"
+            self.cursor.execute(sqlp)
+            rows=self.cursor.fetchone()
+            self.cursor.close()
+            if rows!=None:
+                return rows.get("idpatient")
+         

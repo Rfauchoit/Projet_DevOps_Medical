@@ -20,7 +20,7 @@ class patientController():
     
     def treateCreate(self, patient, data):
         patient.create(data)
-        return redirect("/")
+        return redirect("/displayPatient")
     
     def update(self, patient,data):
         self.idpatient=data.get('idpatient') #permet de garder le idpatient pour le update

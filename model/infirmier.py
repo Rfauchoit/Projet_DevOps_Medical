@@ -50,34 +50,34 @@ class Infirmier(Db):
         self.cursor.execute(sqla)
         self.cursor.close()
 #---------------------------------Useful methodes-------------------------------------------------------------------------------#
-def fetchAdresseByID(self, idadresse):
-    """[Select les infos d'une adresse en fonction de l'idadresse]
-
-    Args:
-        idadresse ([int]): [idadresse]
-
-    Returns:
-        [dict]: [le numéro de la rue, ville, cp]
-    """
-    self.cursor=self.getCursor()
-    sqlp=f"SELECT rue, numero, ville, cp, idadresse FROM adresse where idadresse='{idadresse}'"
-    self.cursor.execute(sqlp)
-    rows=self.cursor.fetchone()
-    self.cursor.close()
-    return rows 
+    def fetchAdresseByID(self, idadresse):
+        """[Select les infos d'une adresse en fonction de l'idadresse]
     
-def fetchAdresseByData(self, InfirmierData):
-    """[Select les infos id adresse en fonction du numero de la rue, ville]
-
-    Args:
-        idadresse ([int]): [idadresse]
-
-    Returns:
-        [dict]: [id rue]
-    """
-    self.cursor=self.getCursor()
-    sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{InfirmierData.get('numero')}' and  adresse.rue= '{InfirmierData.get('rue')}' and adresse.cp='{InfirmierData.get('cp')}' and adresse.ville='{InfirmierData.get('ville')}';"
-    self.cursor.execute(sqlSelect)
-    rows=self.cursor.fetchone()
-    if rows!=None:
-        return rows.get('idadresse')
+        Args:
+            idadresse ([int]): [idadresse]
+    
+        Returns:
+            [dict]: [le numéro de la rue, ville, cp]
+        """
+        self.cursor=self.getCursor()
+        sqlp=f"SELECT rue, numero, ville, cp, idadresse FROM adresse where idadresse='{idadresse}'"
+        self.cursor.execute(sqlp)
+        rows=self.cursor.fetchone()
+        self.cursor.close()
+        return rows 
+    
+    def fetchAdresseByData(self, InfirmierData):
+        """[Select les infos id adresse en fonction du numero de la rue, ville]
+    
+        Args:
+            idadresse ([int]): [idadresse]
+    
+        Returns:
+            [dict]: [id rue]
+        """
+        self.cursor=self.getCursor()
+        sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{InfirmierData.get('numero')}' and  adresse.rue= '{InfirmierData.get('rue')}' and adresse.cp='{InfirmierData.get('cp')}' and adresse.ville='{InfirmierData.get('ville')}';"
+        self.cursor.execute(sqlSelect)
+        rows=self.cursor.fetchone()
+        if rows!=None:
+            return rows.get('idadresse')

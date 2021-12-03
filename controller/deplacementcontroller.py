@@ -18,7 +18,7 @@ class deplacementController():
     
     def treateCreate(sef, deplacement, data):
         deplacement.create(data)
-        return redirect("/displayPatient")
+        return redirect("/displayDeplacement")
     
     
     def update(self, data):

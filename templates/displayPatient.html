@@ -92,8 +92,8 @@
                           <div class="col-sm">
 
                         {{value.nom}} {{value.prenom}} {{value.securite_sociale}}
-                        <a class="btn btn-primary" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
-                        <a class="btn btn-primary" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a> 
+                        <a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
+                        <a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a> 
                         <br></br>
                     </div>
                         </div>
