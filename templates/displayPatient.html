@@ -83,10 +83,27 @@
                  
               
                 </div>
-
-
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+            
             {% for value in data %}
-                <nav>
+            <tr>
+                
+                <td>{{value.nom}}</td>
+                <td>{{value.prenom}}</td>
+                <td>{{value.securite_sociale}}</td>
+                <td> <a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
+                    <a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a></td>
+               
+              
+                {% comment %} <nav>
                     <div class="container">
                         <div class="row">
                           <div class="col-sm">
@@ -99,9 +116,10 @@
                         </div>
                     </div>
                 
-               </nav>
-           {% endfor %}   
-             
+               </nav> {% endcomment %}
+            </tr>
+               {% endfor %}   
+        </table>
            
      
     

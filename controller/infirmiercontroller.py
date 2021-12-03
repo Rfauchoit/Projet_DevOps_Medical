@@ -1,7 +1,7 @@
 from flask import render_template
 from werkzeug.utils import redirect
-
-class infirmierController():
+from controller.abstractController import abstractController
+class infirmierController(abstractController):
 
     def __init__(self):
         self.idinfirmier=None
@@ -15,7 +15,7 @@ class infirmierController():
     def create(self):
         pass
     
-    def createUpdate(self):
+    def treateCreate(self):
         pass
      
     def update(self,infirmier, data):

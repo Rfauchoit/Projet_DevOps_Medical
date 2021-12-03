@@ -3,7 +3,7 @@ from werkzeug.utils import redirect
 from controller.abstractController import abstractController
 
 
-class deplacementController():
+class deplacementController(abstractController):
     def __init__(self):
         self.iddeplacement=None
         
