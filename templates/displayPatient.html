@@ -66,7 +66,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-5">
+            <div class="col-lg">
                 <div class="card text-center">
                     <div class="card-header">
                       
@@ -74,7 +74,7 @@
                     <div class="card-body">
                       <h5 class="card-title"></h5>
                       <p class="card-text">Liste des patients</p>
-                       
+                      <a class="btn btn-info" href="/addPatient" class="nav-link" role="button">Ajouter vos patients</a>
                       
                     </div>
                     <div class="card-footer text-muted">
@@ -83,46 +83,37 @@
                  
               
                 </div>
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
-                    </thead>
-            
-            {% for value in data %}
-            <tr>
-                
-                <td>{{value.nom}}</td>
-                <td>{{value.prenom}}</td>
-                <td>{{value.securite_sociale}}</td>
-                <td> <a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
-                    <a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a></td>
-               
-              
-                {% comment %} <nav>
-                    <div class="container">
-                        <div class="row">
-                          <div class="col-sm">
 
-                        {{value.nom}} {{value.prenom}} {{value.securite_sociale}}
-                        <a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
-                        <a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a> 
-                        <br></br>
-                    </div>
-                        </div>
-                    </div>
-                
-               </nav> {% endcomment %}
-            </tr>
-               {% endfor %}   
-        </table>
-           
-     
+
+
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5-center" >
+
     
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prénom</th>
+                                    <th scope="col">Sécurité sociale</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                {% for value in data %}
+                                <tbody>
+                                  <tr>
+                                    <td>{{value.nom}}</td>
+                                    <td>{{value.prenom}}</td>
+                                    <td>{{value.securite_sociale}}</td>
+                                    <td><a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a></td>
+                                    <td><a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a></td>
+                                  </tr>
+                                  
+                                </tbody>
+                                {% endfor %} 
+                              </table>
+ 
 
 
 </div>

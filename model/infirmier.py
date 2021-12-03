@@ -39,8 +39,9 @@ class Infirmier(Db):
 
 
     def delete(self, id):
+       
         self.cursor=self.getCursor()
-        sql = f"DELETE FROM infirmier WHERE idinfirmier = {id}"
+        sql = f"DELETE FROM infirmier WHERE idinfirmier = '{id}'"
         self.cursor.execute(sql)
         self.cursor.close()
         
@@ -104,9 +105,9 @@ class Infirmier(Db):
         sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{InfirmierData.get('numero')}' and  adresse.rue= '{InfirmierData.get('rue')}' and adresse.cp='{InfirmierData.get('cp')}' and adresse.ville='{InfirmierData.get('ville')}';"
         self.cursor.execute(sqlSelect)
         rows=self.cursor.fetchone()
-        print("Avant return ", rows)
+    
         if rows!=None:
-            print("Apres return ", rows)
+           
             return rows.get('idadresse')
 
         
