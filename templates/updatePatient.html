@@ -116,7 +116,7 @@
                 <h4>Adresse</h4>
                    <div class="form-group">  
                       <label for="rue">Numéro:</label>  
-                      <input type="texte" class="form-control" id="num" name="numero"  value ="{{data.get('numero')}}" placeholder="Entrez votre adresse">  
+                      <input type="texte" class="form-control" id="num" name="numero"  value ="{{data.get('numero')}}" placeholder="Entrez votre adresse" pattern="[0-9]{}">  
                     </div> 
                     <div class="form-group">  
                       <label for="rue">Rue:</label>  
@@ -128,7 +128,7 @@
                     </div> 
                     <div class="form-group">  
                       <label for="cp">Code postal:</label>  
-                      <input type="texte" class="form-control" id="cp" name="cp"   value ="{{data.get('cp')}}"  placeholder="Entrez votre code postal">  
+                      <input type="texte" class="form-control" id="cp" name="cp"   value ="{{data.get('cp')}}"  placeholder="Entrez votre code postal" pattern="[0-9]{}">  
                     </div>
                   </div>
      <!-- Bouton connecter -->

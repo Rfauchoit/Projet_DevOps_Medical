@@ -66,15 +66,15 @@
 
     <div class="card text-center">
       <div class="card-header">
-        
+
       </div>
       <div class="card-body">
         <h5 class="card-title"></h5>
         <p class="card-text">Ajouter vos patients.</p>
-        
       </div>
       <div class="card-footer text-muted">
-        
+
+
       </div>
     </div>
 
@@ -110,35 +110,39 @@
         <select class="form-select" aria-label="Default select example" name="numero_pro">
           <option selected>choisissez votre infirmier</option>
           {% for value in data %}
-             <option value="{{value.numero_pro}}}", name="numero_pro" >{{value.nom}} {{value.prenom}} {{value.numero_pro}}</option>
+            <option value="{{value.numero_pro}}}", name="numero_pro" >{{value.nom}} {{value.prenom}} {{value.numero_pro}}</option>
           {% endfor %}
-             
+          
         </select>
       </div>
-     <!-- Adresse -->
-     <!--style="border: solid;"--> 
+
+    <!-- Adresse -->
+    <!--style="border: solid;"--> 
     <div style="border: 4mm ridge;">
-     <h5>Adresse</h5>
+    <h5>Adresse</h5>
+
       
-     <div class="form-group">  
+    <div class="form-group">  
           <label for="rue">Numéro:</label>  
-          <input type="texte" class="form-control" id="num" name="numero" placeholder="Entrez votre adresse">  
+
+          <input type="texte" class="form-control" id="num" name="numero" value="0" placeholder="Entrez votre adresse"  pattern="[0-9]{}" required>  
+
         </div> 
         <div class="form-group">  
           <label for="rue">Rue:</label>  
-          <input type="texte" class="form-control" id="rue" name="rue" placeholder="Entrez votre adresse">  
+          <input type="texte" class="form-control" id="rue" name="rue" value="0" placeholder="Entrez votre adresse">  
         </div> 
         <div class="form-group">  
           <label for="ville">Ville:</label>  
-          <input type="texte" class="form-control" id="ville" name="ville" placeholder="Entrez votre ville">  
+          <input type="texte" class="form-control" id="ville" name="ville" value="0" placeholder="Entrez votre ville">  
         </div> 
         <div class="form-group">  
           <label for="cp">Code postal:</label>  
-          <input type="texte" class="form-control" id="cp" name="cp" placeholder="Entrez votre code postal">  
+          <input type="texte" class="form-control" id="cp" name="cp" value="0" placeholder="Entrez votre code postal" pattern="[0-9]{}" required>  
         </div>
       </div>
-     <!-- Bouton connecter -->
-     <button type="submit" class="btn btn-success">Annuler</button>
+    <!-- Bouton connecter -->
+    <button type="submit" class="btn btn-success">Annuler</button>
         <button type="submit" class="btn btn-success">Créer</button>
       </form> 
         <div class="col-sm-5">
