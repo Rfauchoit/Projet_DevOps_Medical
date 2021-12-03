@@ -1,5 +1,6 @@
 from flask import render_template
 from werkzeug.utils import redirect
+from controller.abstractController import abstractController
 
 class patientController():
     def __init__(self):
@@ -7,37 +8,34 @@ class patientController():
         self.idadresse=None
 
         
-    def fetch_patient(self, patient):
-        result = patient.fetchAll()
+    def read(self, patient):
+        result = patient.read()
         return render_template("displayPatient.html", data = result)
 
-    def traitementPatient(self, patient, data):
-            patient.addPatient(data)
-            return redirect("/")
-
-
-    def addPatient(self, data):
+  
+    def create(self, data):
         return render_template("/addpatient.html", data=data)
-
     
 
-    def traitementUpdatePatient(self, patient, data):
-            patient.updatePatient(data, self.idpatient, self.idadresse)
-            return redirect("/displayPatient")
-
-        
-    def updatePatient(self, patient,data):
+    def treateCreate(self, patient, data):
+        patient.create(data)
+        return redirect("/displayPatient")
+    
+    def update(self, patient,data):
         self.idpatient=data.get('idpatient') #permet de garder le idpatient pour le update
         dataPatient=patient.fetchAdressePatient(data)
-        dataPatientAdd=patient.fetchInfirmierPatient(dataPatient)
+        dataPatientAdd=patient.fetchInfirmierByIdPatient(dataPatient)
         if (dataPatientAdd!=None):
             dataPatient.update(dataPatientAdd)
         self.idadresse=dataPatient.get('idadresse')
         return render_template("updatePatient.html", data=dataPatient)
-
-
-    def deleteById(self, patient, id):
-        patient.deleteById(id)
+    
+    def treateUpdate(self, patient, data):
+        patient.update(data, self.idpatient, self.idadresse)
+        return redirect("/displayPatient")
+    
+    def delete(self, patient, id):
+        patient.delete(id)
         return redirect("/displayPatient")
 
 

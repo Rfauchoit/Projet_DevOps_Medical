@@ -68,7 +68,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-5">
+            <div class="col-lg">
                 <div class="card text-center">
                     <div class="card-header">
                       
@@ -76,7 +76,7 @@
                     <div class="card-body">
                       <h5 class="card-title"></h5>
                       <p class="card-text">Liste des infirmiers</p>
-                      
+                      <a class="btn btn-info" href="/addInfirmier" class="nav-link" role="button">Ajouter vos infirmiers</a>
                     </div>
                     <div class="card-footer text-muted">
                       
@@ -102,13 +102,14 @@
                                     <td>{{value.nom}}</td>
                                     <td>{{value.prenom}}</td>
                                     <td>{{value.numero_pro}}</td>
-                                    <!-- <td><a class="btn btn-outline-info" href="{{url_for('updateInfirmier')}}?idinfirmier={{value.idinfirmier}}&nom={{value.nom}}&prenom={{value.prenom}}&tel_pro={{value.tel_pro}}&tel_perso={{value.tel_perso}}&idadresse={{value.adresse_idadresse}}&numero_pro={{value.numero_pro}}" role="button">Modifier</a></td> -->
+                                    <td><a class="btn btn-outline-info" href="{{url_for('updateInfirmier')}}?idinfirmier={{value.idinfirmier}}&nom={{value.nom}}&prenom={{value.prenom}}&tel_pro={{value.tel_pro}}&tel_perso={{value.tel_perso}}&idadresse={{value.adresse_idadresse}}&numero_pro={{value.numero_pro}}" role="button">Modifier</a></td>
                                     <td><a class="btn btn-outline-info" href=href="{{url_for('deleteInfirmier', id = value.idinfirmier)}}" role="button">Supprimer</a></td>
                                   </tr>
                                   
                                 </tbody>
                                 {% endfor %} 
                               </table>
+
 
 
 </body>

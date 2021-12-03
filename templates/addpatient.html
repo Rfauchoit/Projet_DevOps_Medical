@@ -115,14 +115,17 @@
           
         </select>
       </div>
+
     <!-- Adresse -->
     <!--style="border: solid;"--> 
-    <div style="border: 4mm ridge rgba(170, 50, 220, .6);">
+    <div style="border: 4mm ridge;">
     <h5>Adresse</h5>
+
       
     <div class="form-group">  
           <label for="rue">Numéro:</label>  
-          <input type="texte" class="form-control" id="num" name="numero" value="0" placeholder="Entrez votre adresse">  
+
+          <input type="texte" class="form-control" id="num" name="numero" value="0" placeholder="Entrez votre adresse"  pattern="[0-9]{}" required>  
 
         </div> 
         <div class="form-group">  
@@ -135,7 +138,7 @@
         </div> 
         <div class="form-group">  
           <label for="cp">Code postal:</label>  
-          <input type="texte" class="form-control" id="cp" name="cp" value="0" placeholder="Entrez votre code postal">  
+          <input type="texte" class="form-control" id="cp" name="cp" value="0" placeholder="Entrez votre code postal" pattern="[0-9]{}" required>  
         </div>
       </div>
     <!-- Bouton connecter -->
