@@ -83,17 +83,34 @@
                     </div>
                   </div>
 
+                  <div class="container">
+                    <div class="row">
+                        <div class="col-sm-5-center" >
+    
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prénom</th>
+                                    <th scope="col">N° pro</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                {% for value in data %}
+                                <tbody>
+                                  <tr>
+                                    <td>{{value.nom}}</td>
+                                    <td>{{value.prenom}}</td>
+                                    <td>{{value.numero_pro}}</td>
+                                    <!-- <td><a class="btn btn-outline-info" href="{{url_for('updateInfirmier')}}?idinfirmier={{value.idinfirmier}}&nom={{value.nom}}&prenom={{value.prenom}}&tel_pro={{value.tel_pro}}&tel_perso={{value.tel_perso}}&idadresse={{value.adresse_idadresse}}&numero_pro={{value.numero_pro}}" role="button">Modifier</a></td> -->
+                                    <td><a class="btn btn-outline-info" href=href="{{url_for('deleteInfirmier', id = value.idinfirmier)}}" role="button">Supprimer</a></td>
+                                  </tr>
+                                  
+                                </tbody>
+                                {% endfor %} 
+                              </table>
 
 
-    <ul>
-        {% for value in data %}
-        <li>{{value.nom}} {{value.prenom}} {{value.numero_pro}}
-            <a class="btn btn-primary" href=href="{{url_for('deleteInfirmier', id = value.idinfirmier)}}" role="button">Supprimer</a>
-        </li>
-       
-        
-        {% endfor %}
-    </ul>
 </body>
 
 </html>

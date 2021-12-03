@@ -83,17 +83,31 @@
 
                   <div class="container">
                     <div class="row">
-                        <div class="col-sm-5">
-    <ul>
-        {% for value in data %}
-            <li>{{value.nom}} {{value.prenom}} {{value.securite_sociale}}
-                <a class="btn btn-primary" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
-                <a class="btn btn-primary" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a>
-            </li>
-
-        {% endfor %}   
-
-    </ul>
+                        <div class="col-sm-5-center" >
+    
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prénom</th>
+                                    <th scope="col">Sécurité sociale</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                {% for value in data %}
+                                <tbody>
+                                  <tr>
+                                    <td>{{value.nom}}</td>
+                                    <td>{{value.prenom}}</td>
+                                    <td>{{value.securite_sociale}}</td>
+                                    <td><a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a></td>
+                                    <td><a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a></td>
+                                  </tr>
+                                  
+                                </tbody>
+                                {% endfor %} 
+                              </table>
+ 
 
 </div>
 </div>

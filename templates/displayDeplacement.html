@@ -66,10 +66,10 @@
         </div>
     </header>
 
-    <div class="container">
+    <div class="container center">
         <div class="row">
-            <div class="col-sm-5">
-                <div class="card text-center">
+            <div class="col-lg">
+                <div class="card text-center center">
                     <div class="card-header">
 
                     </div>
@@ -87,16 +87,36 @@
 
                   </div>
 
-  
-    <ul>
-    {% for value in data %}
-    <li>{{value.nom}} {{value.prenom}} {{value.date}} {{value.cout}}
-        <a  class="btn btn-primary" href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
-        &cout={{value.cout}}&date={{value.date}}" role="button"> modifier </a>
-        <a class="btn btn-primary" href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a>
-    </li>
-    {% endfor %}
-    </ul>
+                  <div class="container center">
+                    <div class="row">
+                        <div class="col-sm-5-center center" >
+    
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Prénom</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Cout</th>
+                                    <th scope="col"></th>
+                                  </tr>
+                                </thead>
+                                {% for value in data %}
+                                <tbody>
+                                  <tr>
+                                    <td>{{value.nom}}</td>
+                                    <td>{{value.prenom}}</td>
+                                    <td>{{value.date}}</td>
+                                    <td>{{value.cout}}</td>
+                                    <td><a  class="btn btn-outline-info" href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
+                                        &cout={{value.cout}}&date={{value.date}}" role="button"> modifier </a></td>
+                                    <td><a class="btn btn-outline-info" href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a></td>
+                                  </tr>
+                                  
+                                </tbody>
+                                {% endfor %} 
+                              </table>
+
                 </div>
 
 
