@@ -3,21 +3,20 @@ from werkzeug.utils import redirect
 from controller.abstractController import abstractController
 
 class patientController():
-   
     def __init__(self):
-
         self.idpatient=None
         self.idadresse=None
-   
+
         
     def read(self, patient):
         result = patient.read()
         return render_template("displayPatient.html", data = result)
 
-   
+  
     def create(self, data):
         return render_template("/addpatient.html", data=data)
     
+
     def treateCreate(self, patient, data):
         patient.create(data)
         return redirect("/displayPatient")

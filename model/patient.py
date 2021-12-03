@@ -112,7 +112,7 @@ class Patient(Db):
         """
         self.cursor=self.getCursor()
         sqlp=f"SELECT numero_pro FROM infirmier where idinfirmier='{patientData.get('infirmier_idinfirmier')}'" 
-       
+    
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchone()
         self.cursor.close()
@@ -138,7 +138,7 @@ class Patient(Db):
             
               
     
-   
+
     def fetchOneInfirmier(self, patientData):
         """[Methode qui permet de récuper l'id de l'infirmier à partir de son numéro pro]
 
@@ -158,7 +158,7 @@ class Patient(Db):
     
     def fetchAdressePatient(self, patientData):
         """[cette methode sert à faire un select les infos du patient
-           et son adresse dans la table adresse
+            et son adresse dans la table adresse
         ]
 
         Args:
@@ -170,11 +170,11 @@ class Patient(Db):
             securite_sociale, rue, numero, ville, cp, adresse.idadresse, infirmier_idinfirmier FROM patient 
             left join adresse on patient.adresse_idadresse=adresse.idadresse WHERE idpatient='{patientData.get('idpatient')}'"""
     
-          
+        
         self.cursor.execute(sqlp)
         rows=self.cursor.fetchone()
         self.cursor.close()
         return rows 
     
 
-        
+    

@@ -30,6 +30,7 @@ def affichagepatient():
 @app.route("/addPatient")
 def addPatient():
     data=patient.fetchInfirmier()  
+
     return patientcontroller.create(data)
 
 @app.route("/traitementPatient", methods=['POST', 'GET'])
@@ -37,6 +38,7 @@ def traitementPatient():
       data=request.form
       return patientcontroller.treateCreate(patient, data)
   
+
 @app.route("/updatePatient")  
 def updatePatient():
     data=request.args
@@ -67,6 +69,7 @@ def traitementDeplacement():
       data=request.form
       return deplacementcontroller.treateCreate(deplacement, data)
 
+
 @app.route("/updateDeplacement")  
 def updateDeplacement():
     data=request.args
@@ -74,6 +77,7 @@ def updateDeplacement():
 
 @app.route("/traitementUpdateDeplacement", methods=['POST', 'GET'])
 def traitementUpdateDeplacement():
+
       data=request.form
       return deplacementcontroller.treateUpdate(deplacement, data)
   
@@ -82,6 +86,16 @@ def deleteDeplacement(id):
     return deplacementcontroller.delete(deplacement, id)
 
 #---------------------------------CRUD INFIRMIER------------------------------#
+
+@app.route("/addInfirmier")
+def addInfirmier():
+    return render_template("/addInfirmier.html")
+
+@app.route("/traitementInfirmier", methods=['POST', 'GET'])
+def traitementInfirmier():
+    data=request.form
+    return infirmiercontroller.traitementInfirmier(infirmier, data)
+
 @app.route("/updateInfirmier")  
 def updateInfirmier():
     data=request.args

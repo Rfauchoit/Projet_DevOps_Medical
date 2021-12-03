@@ -33,29 +33,29 @@
             <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" id="main-nav">
                 <div class="container">
 
-                   <!-- lien pour remonter en haut de la page -->
-                   <a href="/" class="navbar-brand">Projet Médical</a>
-                   <!-- bouton : burger menu -->
-                   <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                       <!-- icone de burger menu -->
-                       <span class="navbar-toggler-icon"></span>
-                   </button>
+                  <!-- lien pour remonter en haut de la page -->
+                  <a href="/" class="navbar-brand">Projet Médical</a>
+                  <!-- bouton : burger menu -->
+                  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                      <!-- icone de burger menu -->
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
 
-                   <!-- cible de notre bouton -->
-                   <div class="collapse navbar-collapse" id="navbarCollapse">
-                       <ul class="navbar-nav ml-auto">
-                           <li class="nav-item mr-1">
-                               <a href="/" class="nav-link">Accueil</a>
-                           </li>   
-                           <li class="nav-item mr-1">
-                               <a href="/displayInfirmier" class="nav-link">Infirmier</a>
-                           </li>
-                           <li class="nav-item mr-1">
-                               <a href="/displayPatient" class="nav-link">Patient</a>
-                           </li>
-                           <li class="nav-item mr-1">
-                               <a href="/displayDeplacement" class="nav-link">Déplacements</a>
-                           </li>
+                  <!-- cible de notre bouton -->
+                  <div class="collapse navbar-collapse" id="navbarCollapse">
+                      <ul class="navbar-nav ml-auto">
+                          <li class="nav-item mr-1">
+                              <a href="/" class="nav-link">Accueil</a>
+                          </li>   
+                          <li class="nav-item mr-1">
+                              <a href="/displayInfirmier" class="nav-link">Infirmier</a>
+                          </li>
+                          <li class="nav-item mr-1">
+                              <a href="/displayPatient" class="nav-link">Patient</a>
+                          </li>
+                          <li class="nav-item mr-1">
+                              <a href="/displayDeplacement" class="nav-link">Déplacements</a>
+                          </li>
                         </ul>
                     </div>
 
@@ -74,7 +74,7 @@
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <p class="card-text">Ajouter vos déplacements</p>
+    <p class="card-text">Ajouter un infirmier</p>
     
   </div>
   <div class="card-footer text-muted">
@@ -83,50 +83,54 @@
 </div>
       <!--Formulaire-->
 
-   
-      <div class="container">
+  
+    <div class="container">
         <div class="row">
             <div class="col-sm-5">
     
-        <form action="Accueil.html">  
+        <form action="{{url_for('traitementInfirmier')}}", method="post">  
         <div class="form-group">  
           <label for="nom">Nom:</label>  
-          <input type="texte" class="form-control" id="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
+          <input type="texte" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" minlenght="2" maxlenght="26" required>  
         </div>  
         <div class="form-group">  
           <label for="prenom">Prénom:</label>  
-          <input type="texte" class="form-control" id="prenom" placeholder="Entrez votre prénom" required>  
+          <input type="texte" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>  
         </div>  
         <div class="form-group">  
           <label for="npro">N° Pro</label>  
-          <input type="texte" class="form-control" id="npro" placeholder="">  
+          <input type="texte" class="form-control" id="npro" name="numero_pro" placeholder="">  
         </div>  
         <div class="form-group">  
           <label for="telpro">Téléphone pro:</label>  
-          <input type="texte" class="form-control" id="telpro" placeholder="Entrez votre n° de téléphone pro">  
+          <input type="texte" class="form-control" id="telpro" name="tel_pro" placeholder="Entrez votre n° de téléphone pro">  
         </div>  
         <div class="form-group">  
             <label for="telper">Téléphone pro:</label>  
-            <input type="texte" class="form-control" id="telper" placeholder="Entrez votre n° de téléphone perso">  
-          </div>  
-     <!-- Adresse -->
-     <div style="border: solid;" >
+            <input type="texte" class="form-control" id="telper" name="tel_perso" placeholder="Entrez votre n° de téléphone perso">  
+        </div>  
+    <!-- Adresse -->
+    <div style="border: solid;" >
     <h4>Adresse</h4>
-        <div class="form-group">  
-          <label for="prenom">Rue:</label>  
-          <input type="texte" class="form-control" id="rue" placeholder="Entrez votre adresse">  
-        </div> 
-        <div class="form-group">  
-          <label for="prenom">Ville:</label>  
-          <input type="texte" class="form-control" id="ville" placeholder="Entrez votre ville">  
-        </div> 
-        <div class="form-group">  
-          <label for="cp">Code postal:</label>  
-          <input type="texte" class="form-control" id="cp" placeholder="Entrez votre code postal">  
-        </div>
+      <div class="form-group">  
+        <label for="numero">Numéro:</label>  
+        <input type="texte" class="form-control" id="num" name="numero", value=0 placeholder="Entrez le numéro">  
+      </div> 
+      <div class="form-group">  
+        <label for="rue">Rue:</label>  
+        <input type="texte" class="form-control" id="rue" name="rue"  value=0  placeholder="Entrez votre adresse">  
+      </div> 
+      <div class="form-group">  
+        <label for="ville">Ville:</label>  
+        <input type="texte" class="form-control" id="ville" name="ville"  value=0  placeholder="Entrez votre ville">  
+      </div> 
+      <div class="form-group">  
+        <label for="cp">Code postal:</label>  
+        <input type="texte" class="form-control" id="cp" name="cp"  value=0  placeholder="Entrez votre code postal">  
       </div>
-     <!-- Bouton connecter -->
-     <button type="submit" class="btn btn-success">Annuler</button>
+    </div>
+    <!-- Bouton connecter -->
+    <button type="submit" class="btn btn-success">Annuler</button>
         <button type="submit" class="btn btn-success">Créer</button>
 
       </form> 
@@ -139,8 +143,6 @@
         </div>
     </div>
 
-        <footer>
-         
-        </footer>
+
     </body>
     </html>

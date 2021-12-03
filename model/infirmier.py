@@ -13,13 +13,38 @@ class Infirmier(Db):
         self.cursor.close()
         return rows
     
+    def addInfirmier(self, infirmierData):
+        """[cette methode sert à ajouter un infirmier dans la base medical, table infirmier]
+
+        Args:
+            infirmierData ([dict]): [les infos de l'infirmier]
+        """
+        id_adresse=self.fetchAdresseByData(infirmierData)
      
+        if id_adresse==None :
+            self.cursor=self.getCursor()
+            sqla = """INSERT INTO adresse(numero, rue, cp, ville) VALUE (%s,%s,%s,%s);"""
+            vala =(infirmierData.get('numero'), infirmierData.get('rue'), infirmierData.get('cp'), infirmierData.get('ville'))
+            self.cursor.execute(sqla, vala)
+            id_adresse=self.fetchAdresseByData(infirmierData)
+        
+      
+        self.cursor=self.getCursor()
+        sqlb = """INSERT INTO infirmier (adresse_idadresse, numero_pro, nom, prenom, tel_pro, tel_perso)
+                VALUES (%s, %s, %s, %s, %s, %s);"""
+        valb = (id_adresse, infirmierData.get('numero_pro'), infirmierData.get('nom'), infirmierData.get('prenom'), infirmierData.get('tel_pro'), infirmierData.get('tel_perso'))
+        
+        self.cursor.execute(sqlb, valb)
+        self.cursor.close()
+
+
     def delete(self, id):
         self.cursor=self.getCursor()
         sql = f"DELETE FROM infirmier WHERE idinfirmier = {id}"
         self.cursor.execute(sql)
         self.cursor.close()
         
+
     def update(self, infirmierData):
     
         """[cette methode sert à mettre à jour les informations dun infirmier dans la table infirmier 
@@ -79,5 +104,10 @@ class Infirmier(Db):
         sqlSelect=f"SELECT idadresse FROM adresse WHERE adresse.numero='{InfirmierData.get('numero')}' and  adresse.rue= '{InfirmierData.get('rue')}' and adresse.cp='{InfirmierData.get('cp')}' and adresse.ville='{InfirmierData.get('ville')}';"
         self.cursor.execute(sqlSelect)
         rows=self.cursor.fetchone()
+        print("Avant return ", rows)
         if rows!=None:
+            print("Apres return ", rows)
             return rows.get('idadresse')
+
+        
+   

@@ -18,13 +18,15 @@ class Deplacement(Db):
         self.cursor.close()
         return rows
     
+
     def create(self, patientData):
+
         """[cette methode sert à ajouter un deplacement en fonction du numéro de secu d'un patient]
 
         Args:
             patientData ([dict]): [les infos du patients]
         """
-             
+
         if type(patientData.get('securite_sociale')).__name__!='NoneType':
             idPatient=self.fecthPatientBySecu(patientData)
             self.cursor=self.getCursor()
@@ -33,6 +35,7 @@ class Deplacement(Db):
             val = (idPatient,  patientData.get('date'), patientData.get('cout'))
             self.cursor.execute(sql, val)
             self.cursor.close()
+
         
 
 
@@ -44,8 +47,6 @@ class Deplacement(Db):
             self.cursor.execute(sqlp)
             self.cursor.close()
       
-
-
     def delete(self, id):
         self.cursor=self.getCursor()
         sql = f"DELETE FROM deplacement WHERE iddeplacement='{id}'"

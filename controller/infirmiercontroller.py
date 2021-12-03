@@ -2,7 +2,12 @@ from flask import render_template
 from werkzeug.utils import redirect
 
 class infirmierController():
-    
+
+    def __init__(self):
+        self.idinfirmier=None
+        self.idadresse=None
+        
+  
     def read(self, infirmier):
         result = infirmier.read() 
         return render_template("displayInfirmier.html", data= result)
@@ -23,9 +28,15 @@ class infirmierController():
     def treateUpdate(self, infirmier, data):
         infirmier.update(data)
         return redirect("/displayInfirmier")
-    
+
     def delete(self, infirmier, id):
         infirmier.delete(id)
         return redirect("/displayInfirmier")
     
+    def traitementInfirmier(self, infirmier, data):
+        infirmier.addInfirmier(data)
+        return redirect("/displayInfirmier")
+
+    def addInfirmier(self, data):
+        return render_template("/addpatient.html", data=data)
 

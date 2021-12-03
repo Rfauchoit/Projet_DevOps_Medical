@@ -7,10 +7,10 @@ class deplacementController():
     def __init__(self):
         self.iddeplacement=None
         
+
     def read(self, deplacement):
         result = deplacement.read()
         return render_template("displayDeplacement.html", data= result)
-    
         
     def create(self):
         return render_template("addDeplacement.html")
@@ -33,5 +33,3 @@ class deplacementController():
     def delete(self, deplacement, id):
         deplacement.delete(id)
         return redirect("/displayDeplacement")
-    
-    
