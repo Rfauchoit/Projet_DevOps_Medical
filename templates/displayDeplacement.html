@@ -91,9 +91,9 @@
     <ul>
     {% for value in data %}
     <li>{{value.nom}} {{value.prenom}} {{value.date}} {{value.cout}}
-        <a  class="btn btn-primary" href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
+        <a  class="btn btn-outline-info" href="{{url_for('updateDeplacement')}}?iddeplacement={{value.iddeplacement}}&nom={{value.nom}}
         &cout={{value.cout}}&date={{value.date}}" role="button"> modifier </a>
-        <a class="btn btn-primary" href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a>
+        <a class="btn btn-outline-info" href="{{url_for('deleteDeplacement', id = value.iddeplacement)}}" role="button">Supprimer</a>
     </li>
     {% endfor %}
     </ul>

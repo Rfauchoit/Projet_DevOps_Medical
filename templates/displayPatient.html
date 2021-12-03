@@ -74,26 +74,38 @@
                     <div class="card-body">
                       <h5 class="card-title"></h5>
                       <p class="card-text">Liste des patients</p>
+                       
                       
                     </div>
                     <div class="card-footer text-muted">
-                      
+                    
                     </div>
-                  </div>
+                 
+              
+                </div>
 
-                  <div class="container">
-                    <div class="row">
-                        <div class="col-sm-5">
-    <ul>
-        {% for value in data %}
-            <li>{{value.nom}} {{value.prenom}} {{value.securite_sociale}}
-                <a class="btn btn-primary" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
-                <a class="btn btn-primary" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a>
-            </li>
 
-        {% endfor %}   
+            {% for value in data %}
+                <nav>
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-sm">
 
-    </ul>
+                        {{value.nom}} {{value.prenom}} {{value.securite_sociale}}
+                        <a class="btn btn-outline-info" href="{{url_for('updatePatient')}}?idpatient={{value.idpatient}}&idinfirmier={{value.infirmier_idinfirmier}}" role="button">Modifier</a>
+                        <a class="btn btn-outline-info" href="{{url_for('deletePatient', id=value.idpatient)}}" role="button">Supprimer</a> 
+                        <br></br>
+                    </div>
+                        </div>
+                    </div>
+                
+               </nav>
+           {% endfor %}   
+             
+           
+     
+    
+
 
 </div>
 </div>

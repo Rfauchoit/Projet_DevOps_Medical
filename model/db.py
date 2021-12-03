@@ -16,9 +16,9 @@ class Db():
             database=Config.database,
             port=Config.port
             )
-
+        self.conn.autocommit=True
             
-        self.conn.autocommit=True #il est à zero par defaut sur mysql.connector
+         #il est à zero par defaut sur mysql.connector
 
     def getCursor(self):
         try:
@@ -26,8 +26,10 @@ class Db():
             return cursor
         except mysql.connector.Error as err:
             print(err)
-
-        self.conn.autocommit=True 
+        self.conn.autocommit=True
+           
+        
+     
 
 
 

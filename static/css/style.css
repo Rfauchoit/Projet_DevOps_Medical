@@ -89,10 +89,13 @@ h1 {
     padding-bottom: 40px;
 }
 
-.col-sm-5{
-    margin: auto;
 
-}
+
+ nav ul {
+    display: flex;
+    justify-content: space-between;
+  } 
+        
 
 .card {
     position: relative;
@@ -164,7 +167,7 @@ margin-left: 15%;
    padding-right: 10%;
    margin-bottom: 10%;
   
-<<<<<<< HEAD
+
 }
 
 #grille {
@@ -178,9 +181,3 @@ margin-left: 15%;
     padding-top: 10%;
 }
 
-/*.adresse {
-    border: solid;
-}*/
-=======
-}
->>>>>>> develop
