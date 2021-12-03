@@ -112,6 +112,7 @@ def affichageinfirmier():
 
 @app.route('/deleteInfirmier/<int:id>', methods = ['GET', 'POST'])
 def deleteInfirmier(id):
+    
     return infirmiercontroller.delete(infirmier, id)
 
 

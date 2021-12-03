@@ -2,16 +2,17 @@ from abc import ABC, abstractmethod
 class abstractController(ABC):
     
     @abstractmethod
-    def create():
+    def create(self):
         pass
     
+    
     @abstractmethod
-    def treateCreat():
+    def treateCreate(self):
          pass
     
       
     @abstractmethod
-    def update():
+    def update(self):
         pass
     
     # @abstractmethod
@@ -19,7 +20,7 @@ class abstractController(ABC):
     #     pass
     
     @abstractmethod
-    def delete():
+    def delete(self):
         pass
     
     # @abstractmethod
@@ -27,7 +28,7 @@ class abstractController(ABC):
     #     pass
     
     @abstractmethod
-    def read():
+    def read(self):
         pass
     # @abstractmethod
     # def treatRead():
